@@ -1,0 +1,75 @@
+{% extends 'admin/loyalty_card/card.html.twig' %}
+
+{% block title %}Voir une Carte{% endblock %}
+
+{% block titre_section %} Voir la carte '{{ loyalty_card.id }}' {% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-6">
+			<h2>Détails de la Carte</h2>		
+		</div>
+		<div class="col-md-6 text-right">
+			<a href="{{ path('loyalty_card_edit', {'id': loyalty_card.id}) }}" class="btn btn-primary">Modifier</a>
+		</div>
+	</div>    
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th width="240">Id</th>
+                <td>{{ loyalty_card.id }}</td>
+            </tr>
+            <tr>
+                <th>Centre</th>
+                <td><a href="{{ path('center_show', {'id': center.id}) }}" class="tlink">
+                        {{ center.name }}</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Client</th>
+                <td><a href="{{ path('customer_show', {'id': customer.id}) }}" class="tlink">
+                        {{ customer.firstName }} {{ customer.lastName }}</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Code carte</th>
+                <td>{{ loyalty_card.cardCode }}</td>
+            </tr>
+            <tr>
+                <th>QRCode</th>
+                {#<td>{{ loyalty_card.QRCode }} &nbsp;&nbsp; {{ qr_code }}</td>#}
+                {#<td><img src={{ 'qr_code' }}" /></td>#}
+                {#<td>{{ qr_code }}</td>#}
+                <td>
+					<div class="row">
+						<div class="col-md-7">{{ loyalty_card.QRCode|nl2br }}</div>
+						<div class="col-md-5 text-center"> <img src="{{ qr_code_url(qr_code.text) }}" style="vertical-align:middle; margin: -30px; width: 300px; "/></div>
+					</div><br>
+				</td>
+            </tr>
+            <tr>
+                <th>Date d'activation</th>
+                <td>{{ loyalty_card.dateOfIssue ? loyalty_card.dateOfIssue|date('j/n/Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Valide ?</th>
+                <td>{{ loyalty_card.isValid ? 'Oui' : 'Non' }}</td>
+            </tr>
+            <tr>
+                <th>App Smartphone activée ?</th>
+                <td>{{ loyalty_card.isPhoneAppActive ? 'Oui' : 'Non' }}</td>
+            </tr>
+            <tr>
+                <th>Points de fidélité</th>
+                <td>{{ loyalty_card.loyaltyPoints }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('loyalty_card_index') }}">Retour à la liste</a>
+    &nbsp;|&nbsp;
+    <a href="{{ path('loyalty_card_edit', {'id': loyalty_card.id}) }}">Modifier</a>
+
+    {{ include('admin/loyalty_card/_delete_form.html.twig') }}
+{% endblock %}

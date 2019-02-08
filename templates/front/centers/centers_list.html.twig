@@ -1,0 +1,39 @@
+{% extends 'front/centers/center.html.twig' %}
+
+{% block description %}Votre club de pointe pour un laser game en Bourgogne. Shinigami vous ouvre ses portes, avec des bonus, des récompenses et des jeux.{% endblock %}
+
+{% block title %}
+Shinigami Laser Game - Venez vivre l'expérience
+{% endblock %}
+
+
+{% block content %}
+
+
+    {% for center in centers %}
+        <div class="row">
+            <div class="col-md-8">
+                <h3 class="center_titre"><a href="{{ path('centers_infos', {
+                        'slug': center.slug,
+                        'id': center.id
+                    }) }}">{{ center.name }}</a></h3>
+                <p>{{ center.address }} - {{ center.zipCode }} {{ center.city }}<br>
+                    Email : <a href="mailto:{{ center.email }}">{{ center.email }}</a><br>
+                    Tél : {{ center.phone_format }}
+                </p>
+				<br>
+				<a href="{{ path('centers_infos', {
+                        'slug': center.slug,
+                        'id': center.id
+                    }) }}" class="btn btn-secondary">En savoir plus</a>
+            </div>
+            <div class="col-md-4 img_center_list">
+                <img alt="{{ center.name }}"
+                     src="{{ asset('images/centers/'~center.centerImage) }}" class="img-responsive">
+            </div>
+        </div>
+        <br><br>
+    {% endfor %}
+
+
+{% endblock %}

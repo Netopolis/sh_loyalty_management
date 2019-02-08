@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\xampp\htdocs\symfony\shinigami_laser\src</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href=".css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href=".css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href=".css/style.css" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]>
+  <script src=".js/html5shiv.min.js"></script>
+  <script src=".js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="index.html">C:\xampp\htdocs\symfony\shinigami_laser\src</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/Front/HelperTrait.php.html#7">HelperTrait</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/CustomerActivityFixtures.php.html#16">App\DataFixtures\CustomerActivityFixtures</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/CustomerActivityRepository.php.html#15">App\Repository\CustomerActivityRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Migrations/Version20190129090809.php.html#13">DoctrineMigrations\Version20190129090809</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/CustomerActivityType.php.html#13">App\Form\CustomerActivityType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/UserFixtures.php.html#10">App\DataFixtures\UserFixtures</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/StatsDashboardFixtures.php.html#14">App\DataFixtures\StatsDashboardFixtures</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/LoyaltyCardFixtures.php.html#12">App\DataFixtures\LoyaltyCardFixtures</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/CustomerFixtures.php.html#11">App\DataFixtures\CustomerFixtures</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/LoyaltyCardRequestFixtures.php.html#16">App\DataFixtures\LoyaltyCardRequestFixtures</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/CenterFixtures.php.html#9">App\DataFixtures\CenterFixtures</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Front/AccountController.php.html#33">App\Controller\Front\AccountController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/AppFixturesHelper.php.html#14">App\DataFixtures\AppFixturesHelper</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/KeepValueListener.php.html#28">App\Form\KeepValueListener</a></td><td class="text-right">23%</td></tr>
+       <tr><td><a href="Service/Twig/AppExtension.php.html#11">App\Service\Twig\AppExtension</a></td><td class="text-right">33%</td></tr>
+       <tr><td><a href="Service/YamlStatsProvider.php.html#16">App\Service\YamlStatsProvider</a></td><td class="text-right">44%</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#24">App\Controller\Admin\AdminController</a></td><td class="text-right">47%</td></tr>
+       <tr><td><a href="Controller/Admin/LoyaltyCardController.php.html#24">App\Controller\Admin\LoyaltyCardController</a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#19">App\Controller\Admin\UserController</a></td><td class="text-right">53%</td></tr>
+       <tr><td><a href="Controller/Admin/CenterController.php.html#24">App\Controller\Admin\CenterController</a></td><td class="text-right">56%</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#24">App\Controller\Admin\CustomerController</a></td><td class="text-right">63%</td></tr>
+       <tr><td><a href="Controller/Sec/FrontSecurityController.php.html#23">App\Controller\Sec\FrontSecurityController</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Repository/CardRequestRepository.php.html#15">App\Repository\CardRequestRepository</a></td><td class="text-right">68%</td></tr>
+       <tr><td><a href="Controller/Front/FrontController.php.html#14">App\Controller\Front\FrontController</a></td><td class="text-right">73%</td></tr>
+       <tr><td><a href="Controller/Sec/AdminSecurityController.php.html#9">App\Controller\Sec\AdminSecurityController</a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Kernel.php.html#12">App\Kernel</a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Entity/Center.php.html#15">App\Entity\Center</a></td><td class="text-right">76%</td></tr>
+       <tr><td><a href="Service/FrontMemberService.php.html#19">App\Service\FrontMemberService</a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Repository/CenterRepository.php.html#16">App\Repository\CenterRepository</a></td><td class="text-right">85%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/Front/AccountController.php.html#33">App\Controller\Front\AccountController</a></td><td class="text-right">380</td></tr>
+       <tr><td><a href="DataFixtures/CenterFixtures.php.html#9">App\DataFixtures\CenterFixtures</a></td><td class="text-right">306</td></tr>
+       <tr><td><a href="DataFixtures/AppFixturesHelper.php.html#14">App\DataFixtures\AppFixturesHelper</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="DataFixtures/CustomerActivityFixtures.php.html#16">App\DataFixtures\CustomerActivityFixtures</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Controller/Admin/LoyaltyCardController.php.html#24">App\Controller\Admin\LoyaltyCardController</a></td><td class="text-right">92</td></tr>
+       <tr><td><a href="Entity/Center.php.html#15">App\Entity\Center</a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#24">App\Controller\Admin\AdminController</a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#19">App\Controller\Admin\UserController</a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#24">App\Controller\Admin\CustomerController</a></td><td class="text-right">59</td></tr>
+       <tr><td><a href="Controller/Admin/CenterController.php.html#24">App\Controller\Admin\CenterController</a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="DataFixtures/LoyaltyCardFixtures.php.html#12">App\DataFixtures\LoyaltyCardFixtures</a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Form/KeepValueListener.php.html#28">App\Form\KeepValueListener</a></td><td class="text-right">44</td></tr>
+       <tr><td><a href="DataFixtures/LoyaltyCardRequestFixtures.php.html#16">App\DataFixtures\LoyaltyCardRequestFixtures</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="DataFixtures/CustomerFixtures.php.html#11">App\DataFixtures\CustomerFixtures</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="DataFixtures/UserFixtures.php.html#10">App\DataFixtures\UserFixtures</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="DataFixtures/StatsDashboardFixtures.php.html#14">App\DataFixtures\StatsDashboardFixtures</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repository/CenterRepository.php.html#16">App\Repository\CenterRepository</a></td><td class="text-right">8</td></tr>
+       <tr><td><a href="Kernel.php.html#12">App\Kernel</a></td><td class="text-right">7</td></tr>
+       <tr><td><a href="Controller/Sec/FrontSecurityController.php.html#23">App\Controller\Sec\FrontSecurityController</a></td><td class="text-right">7</td></tr>
+       <tr><td><a href="Service/YamlStatsProvider.php.html#16">App\Service\YamlStatsProvider</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Sec/AdminSecurityController.php.html#9">App\Controller\Sec\AdminSecurityController</a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Service/FrontMemberService.php.html#19">App\Service\FrontMemberService</a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/Front/HelperTrait.php.html#15"><abbr title="HelperTrait::slugify">slugify</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/CustomerFixtures.php.html#13"><abbr title="App\DataFixtures\CustomerFixtures::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/StatsDashboardFixtures.php.html#63"><abbr title="App\DataFixtures\StatsDashboardFixtures::getDependencies">getDependencies</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/StatsDashboardFixtures.php.html#17"><abbr title="App\DataFixtures\StatsDashboardFixtures::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/LoyaltyCardRequestFixtures.php.html#54"><abbr title="App\DataFixtures\LoyaltyCardRequestFixtures::getDependencies">getDependencies</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/LoyaltyCardRequestFixtures.php.html#18"><abbr title="App\DataFixtures\LoyaltyCardRequestFixtures::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/LoyaltyCardFixtures.php.html#82"><abbr title="App\DataFixtures\LoyaltyCardFixtures::getDependencies">getDependencies</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/LoyaltyCardFixtures.php.html#71"><abbr title="App\DataFixtures\LoyaltyCardFixtures::generateQRCode">generateQRCode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/LoyaltyCardFixtures.php.html#18"><abbr title="App\DataFixtures\LoyaltyCardFixtures::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/CustomerFixtures.php.html#68"><abbr title="App\DataFixtures\CustomerFixtures::getDependencies">getDependencies</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/CustomerActivityFixtures.php.html#173"><abbr title="App\DataFixtures\CustomerActivityFixtures::getDependencies">getDependencies</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/UserFixtures.php.html#71"><abbr title="App\DataFixtures\UserFixtures::getDependencies">getDependencies</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/CustomerActivityFixtures.php.html#18"><abbr title="App\DataFixtures\CustomerActivityFixtures::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/CenterFixtures.php.html#11"><abbr title="App\DataFixtures\CenterFixtures::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/AppFixturesHelper.php.html#165"><abbr title="App\DataFixtures\AppFixturesHelper::randomFloat">randomFloat</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/AppFixturesHelper.php.html#145"><abbr title="App\DataFixtures\AppFixturesHelper::dateDiffInWeeks">dateDiffInWeeks</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/AppFixturesHelper.php.html#134"><abbr title="App\DataFixtures\AppFixturesHelper::stripAccents">stripAccents</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/AppFixturesHelper.php.html#98"><abbr title="App\DataFixtures\AppFixturesHelper::generateCity">generateCity</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/AppFixturesHelper.php.html#65"><abbr title="App\DataFixtures\AppFixturesHelper::generateRandDate">generateRandDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/AppFixturesHelper.php.html#47"><abbr title="App\DataFixtures\AppFixturesHelper::generateNickName">generateNickName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/AppFixturesHelper.php.html#34"><abbr title="App\DataFixtures\AppFixturesHelper::generateLastName">generateLastName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/UserFixtures.php.html#12"><abbr title="App\DataFixtures\UserFixtures::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Center.php.html#224"><abbr title="App\Entity\Center::removeCardsEmitted">removeCardsEmitted</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Sec/FrontSecurityController.php.html#58"><abbr title="App\Controller\Sec\FrontSecurityController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/KeepValueListener.php.html#87"><abbr title="App\Form\KeepValueListener::asBool">asBool</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Twig/AppExtension.php.html#49"><abbr title="App\Service\Twig\AppExtension::anonymousFunction:49#209">anonymousFunction:49#209</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Twig/AppExtension.php.html#40"><abbr title="App\Service\Twig\AppExtension::anonymousFunction:40#161">anonymousFunction:40#161</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/CustomerActivityRepository.php.html#17"><abbr title="App\Repository\CustomerActivityRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/CardRequestRepository.php.html#53"><abbr title="App\Repository\CardRequestRepository::findRequestCard">findRequestCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Migrations/Version20190129090809.php.html#39"><abbr title="DoctrineMigrations\Version20190129090809::down">down</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Migrations/Version20190129090809.php.html#20"><abbr title="DoctrineMigrations\Version20190129090809::up">up</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Migrations/Version20190129090809.php.html#15"><abbr title="DoctrineMigrations\Version20190129090809::getDescription">getDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kernel.php.html#50"><abbr title="App\Kernel::configureRoutes">configureRoutes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/KeepValueListener.php.html#66"><abbr title="App\Form\KeepValueListener::onPreSubmit">onPreSubmit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Center.php.html#255"><abbr title="App\Entity\Center::removeUser">removeUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/CustomerActivityType.php.html#60"><abbr title="App\Form\CustomerActivityType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/CustomerActivityType.php.html#15"><abbr title="App\Form\CustomerActivityType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#210"><abbr title="App\Entity\User::setImageProfile">setImageProfile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#202"><abbr title="App\Entity\User::getImageProfile">getImageProfile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Customer.php.html#510"><abbr title="App\Entity\Customer::unserialize">unserialize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Customer.php.html#492"><abbr title="App\Entity\Customer::serialize">serialize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Customer.php.html#465"><abbr title="App\Entity\Customer::eraseCredentials">eraseCredentials</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Center.php.html#328"><abbr title="App\Entity\Center::setPhone_Format">setPhone_Format</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Center.php.html#286"><abbr title="App\Entity\Center::removeCustomer">removeCustomer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/AppFixturesHelper.php.html#21"><abbr title="App\DataFixtures\AppFixturesHelper::generateFirstName">generateFirstName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/AppFixturesHelper.php.html#85"><abbr title="App\DataFixtures\AppFixturesHelper::generateAddress">generateAddress</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#271"><abbr title="App\Controller\Admin\CustomerController::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#255"><abbr title="App\Controller\Admin\UserController::enableUser">enableUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#322"><abbr title="App\Controller\Admin\AdminController::InformCustomerCard">InformCustomerCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#362"><abbr title="App\Controller\Admin\AdminController::CustomerCardWithDraw">CustomerCardWithDraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/CenterController.php.html#248"><abbr title="App\Controller\Admin\CenterController::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#237"><abbr title="App\Controller\Admin\AdminController::ValidateCard">ValidateCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#229"><abbr title="App\Controller\Admin\CustomerController::editActivity">editActivity</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/LoyaltyCardController.php.html#276"><abbr title="App\Controller\Admin\LoyaltyCardController::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/LoyaltyCardController.php.html#323"><abbr title="App\Controller\Admin\LoyaltyCardController::enableCard">enableCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#208"><abbr title="App\Controller\Admin\UserController::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#229"><abbr title="App\Controller\Admin\UserController::disableUser">disableUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/LoyaltyCardController.php.html#297"><abbr title="App\Controller\Admin\LoyaltyCardController::disabledCard">disabledCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Front/AccountController.php.html#36"><abbr title="App\Controller\Front\AccountController::getMember">getMember</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Front/AccountController.php.html#139"><abbr title="App\Controller\Front\AccountController::cardRequest">cardRequest</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Sec/AdminSecurityController.php.html#42"><abbr title="App\Controller\Sec\AdminSecurityController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Front/FrontController.php.html#40"><abbr title="App\Controller\Front\FrontController::DisplayCenter">DisplayCenter</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Front/AccountController.php.html#188"><abbr title="App\Controller\Front\AccountController::memberEdit">memberEdit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Front/AccountController.php.html#65"><abbr title="App\Controller\Front\AccountController::accountIndex">accountIndex</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Front/AccountController.php.html#171"><abbr title="App\Controller\Front\AccountController::cardDisplay">cardDisplay</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#293"><abbr title="App\Controller\Admin\AdminController::RefuseCard">RefuseCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/Front/AccountController.php.html#103"><abbr title="App\Controller\Front\AccountController::accountScores">accountScores</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/YamlStatsProvider.php.html#31"><abbr title="App\Service\YamlStatsProvider::getStats">getStats</abbr></a></td><td class="text-right">25%</td></tr>
+       <tr><td><a href="Controller/Admin/LoyaltyCardController.php.html#80"><abbr title="App\Controller\Admin\LoyaltyCardController::newLoyaltyCard">newLoyaltyCard</abbr></a></td><td class="text-right">42%</td></tr>
+       <tr><td><a href="Controller/Admin/LoyaltyCardController.php.html#138"><abbr title="App\Controller\Admin\LoyaltyCardController::newCustomerCard">newCustomerCard</abbr></a></td><td class="text-right">44%</td></tr>
+       <tr><td><a href="Repository/CustomerRepository.php.html#97"><abbr title="App\Repository\CustomerRepository::getMaxCustomerCode">getMaxCustomerCode</abbr></a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Controller/Admin/CenterController.php.html#55"><abbr title="App\Controller\Admin\CenterController::newCenter">newCenter</abbr></a></td><td class="text-right">51%</td></tr>
+       <tr><td><a href="Controller/Admin/CenterController.php.html#156"><abbr title="App\Controller\Admin\CenterController::edit">edit</abbr></a></td><td class="text-right">57%</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#103"><abbr title="App\Controller\Admin\UserController::newUserAdmin">newUserAdmin</abbr></a></td><td class="text-right">58%</td></tr>
+       <tr><td><a href="Service/YamlStatsProvider.php.html#19"><abbr title="App\Service\YamlStatsProvider::setStats">setStats</abbr></a></td><td class="text-right">60%</td></tr>
+       <tr><td><a href="Controller/Sec/FrontSecurityController.php.html#73"><abbr title="App\Controller\Sec\FrontSecurityController::formInsc">formInsc</abbr></a></td><td class="text-right">62%</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#189"><abbr title="App\Controller\Admin\CustomerController::edit">edit</abbr></a></td><td class="text-right">64%</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#169"><abbr title="App\Controller\Admin\UserController::edit">edit</abbr></a></td><td class="text-right">64%</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#100"><abbr title="App\Controller\Admin\CustomerController::newCustomer">newCustomer</abbr></a></td><td class="text-right">65%</td></tr>
+       <tr><td><a href="Repository/LoyaltyCardRepository.php.html#106"><abbr title="App\Repository\LoyaltyCardRepository::loyaltyPointsEarnedTotal">loyaltyPointsEarnedTotal</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Repository/CenterRepository.php.html#28"><abbr title="App\Repository\CenterRepository::getMaxCenterCode">getMaxCenterCode</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Repository/CenterRepository.php.html#46"><abbr title="App\Repository\CenterRepository::countCenters">countCenters</abbr></a></td><td class="text-right">71%</td></tr>
+       <tr><td><a href="Repository/LoyaltyCardRepository.php.html#88"><abbr title="App\Repository\LoyaltyCardRepository::countValidLoyaltyCards">countValidLoyaltyCards</abbr></a></td><td class="text-right">71%</td></tr>
+       <tr><td><a href="Repository/CustomerRepository.php.html#142"><abbr title="App\Repository\CustomerRepository::countActiveCustomers">countActiveCustomers</abbr></a></td><td class="text-right">71%</td></tr>
+       <tr><td><a href="Repository/LoyaltyCardRepository.php.html#69"><abbr title="App\Repository\LoyaltyCardRepository::findCustomerByCardCode">findCustomerByCardCode</abbr></a></td><td class="text-right">77%</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#92"><abbr title="App\Repository\UserRepository::countActiveStaff">countActiveStaff</abbr></a></td><td class="text-right">77%</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#130"><abbr title="App\Controller\Admin\AdminController::dashBoard">dashBoard</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#215"><abbr title="App\Controller\Admin\AdminController::loyaltyManager">loyaltyManager</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Service/FrontMemberService.php.html#29"><abbr title="App\Service\FrontMemberService::getInfoMember">getInfoMember</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#51"><abbr title="App\Controller\Admin\AdminController::index">index</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#28"><abbr title="App\Controller\Admin\UserController::index">index</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#54"><abbr title="App\Controller\Admin\CustomerController::indexActivity">indexActivity</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#80"><abbr title="App\Controller\Admin\UserController::indexInactive">indexInactive</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#33"><abbr title="App\Controller\Admin\CustomerController::index">index</abbr></a></td><td class="text-right">83%</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#75"><abbr title="App\Controller\Admin\CustomerController::indexInactive">indexInactive</abbr></a></td><td class="text-right">83%</td></tr>
+       <tr><td><a href="Controller/Admin/LoyaltyCardController.php.html#56"><abbr title="App\Controller\Admin\LoyaltyCardController::indexInactive">indexInactive</abbr></a></td><td class="text-right">83%</td></tr>
+       <tr><td><a href="Controller/Admin/LoyaltyCardController.php.html#243"><abbr title="App\Controller\Admin\LoyaltyCardController::edit">edit</abbr></a></td><td class="text-right">83%</td></tr>
+       <tr><td><a href="Controller/Admin/CenterController.php.html#121"><abbr title="App\Controller\Admin\CenterController::show">show</abbr></a></td><td class="text-right">84%</td></tr>
+       <tr><td><a href="Controller/Sec/AdminSecurityController.php.html#18"><abbr title="App\Controller\Sec\AdminSecurityController::login">login</abbr></a></td><td class="text-right">85%</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#143"><abbr title="App\Controller\Admin\UserController::show">show</abbr></a></td><td class="text-right">87%</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#96"><abbr title="App\Controller\Admin\AdminController::AdminSearchresults">AdminSearchresults</abbr></a></td><td class="text-right">87%</td></tr>
+       <tr><td><a href="Controller/Sec/FrontSecurityController.php.html#32"><abbr title="App\Controller\Sec\FrontSecurityController::login">login</abbr></a></td><td class="text-right">87%</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#292"><abbr title="App\Controller\Admin\CustomerController::deleteFromList">deleteFromList</abbr></a></td><td class="text-right">88%</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#320"><abbr title="App\Controller\Admin\CustomerController::enableCustomer">enableCustomer</abbr></a></td><td class="text-right">88%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="DataFixtures/CenterFixtures.php.html#11"><abbr title="App\DataFixtures\CenterFixtures::load">load</abbr></a></td><td class="text-right">306</td></tr>
+       <tr><td><a href="DataFixtures/CustomerActivityFixtures.php.html#18"><abbr title="App\DataFixtures\CustomerActivityFixtures::load">load</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Controller/Front/AccountController.php.html#188"><abbr title="App\Controller\Front\AccountController::memberEdit">memberEdit</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="DataFixtures/LoyaltyCardRequestFixtures.php.html#18"><abbr title="App\DataFixtures\LoyaltyCardRequestFixtures::load">load</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Form/KeepValueListener.php.html#66"><abbr title="App\Form\KeepValueListener::onPreSubmit">onPreSubmit</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="DataFixtures/LoyaltyCardFixtures.php.html#18"><abbr title="App\DataFixtures\LoyaltyCardFixtures::load">load</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Controller/Front/AccountController.php.html#36"><abbr title="App\Controller\Front\AccountController::getMember">getMember</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="DataFixtures/AppFixturesHelper.php.html#65"><abbr title="App\DataFixtures\AppFixturesHelper::generateRandDate">generateRandDate</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="DataFixtures/CustomerFixtures.php.html#13"><abbr title="App\DataFixtures\CustomerFixtures::load">load</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#229"><abbr title="App\Controller\Admin\CustomerController::editActivity">editActivity</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Entity/Center.php.html#224"><abbr title="App\Entity\Center::removeCardsEmitted">removeCardsEmitted</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="DataFixtures/UserFixtures.php.html#12"><abbr title="App\DataFixtures\UserFixtures::load">load</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/Front/AccountController.php.html#139"><abbr title="App\Controller\Front\AccountController::cardRequest">cardRequest</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Entity/Center.php.html#286"><abbr title="App\Entity\Center::removeCustomer">removeCustomer</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Entity/Center.php.html#255"><abbr title="App\Entity\Center::removeUser">removeUser</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/Admin/CenterController.php.html#248"><abbr title="App\Controller\Admin\CenterController::delete">delete</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/Admin/CenterController.php.html#156"><abbr title="App\Controller\Admin\CenterController::edit">edit</abbr></a></td><td class="text-right">10</td></tr>
+       <tr><td><a href="Controller/Admin/CenterController.php.html#55"><abbr title="App\Controller\Admin\CenterController::newCenter">newCenter</abbr></a></td><td class="text-right">10</td></tr>
+       <tr><td><a href="Controller/Admin/LoyaltyCardController.php.html#80"><abbr title="App\Controller\Admin\LoyaltyCardController::newLoyaltyCard">newLoyaltyCard</abbr></a></td><td class="text-right">7</td></tr>
+       <tr><td><a href="Controller/Admin/LoyaltyCardController.php.html#138"><abbr title="App\Controller\Admin\LoyaltyCardController::newCustomerCard">newCustomerCard</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#255"><abbr title="App\Controller\Admin\UserController::enableUser">enableUser</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#208"><abbr title="App\Controller\Admin\UserController::delete">delete</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Admin/LoyaltyCardController.php.html#323"><abbr title="App\Controller\Admin\LoyaltyCardController::enableCard">enableCard</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Front/AccountController.php.html#65"><abbr title="App\Controller\Front\AccountController::accountIndex">accountIndex</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Front/AccountController.php.html#103"><abbr title="App\Controller\Front\AccountController::accountScores">accountScores</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#229"><abbr title="App\Controller\Admin\UserController::disableUser">disableUser</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Admin/LoyaltyCardController.php.html#297"><abbr title="App\Controller\Admin\LoyaltyCardController::disabledCard">disabledCard</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Admin/LoyaltyCardController.php.html#276"><abbr title="App\Controller\Admin\LoyaltyCardController::delete">delete</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="DataFixtures/StatsDashboardFixtures.php.html#17"><abbr title="App\DataFixtures\StatsDashboardFixtures::load">load</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#271"><abbr title="App\Controller\Admin\CustomerController::delete">delete</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#362"><abbr title="App\Controller\Admin\AdminController::CustomerCardWithDraw">CustomerCardWithDraw</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#322"><abbr title="App\Controller\Admin\AdminController::InformCustomerCard">InformCustomerCard</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#293"><abbr title="App\Controller\Admin\AdminController::RefuseCard">RefuseCard</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#237"><abbr title="App\Controller\Admin\AdminController::ValidateCard">ValidateCard</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="DataFixtures/AppFixturesHelper.php.html#145"><abbr title="App\DataFixtures\AppFixturesHelper::dateDiffInWeeks">dateDiffInWeeks</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#130"><abbr title="App\Controller\Admin\AdminController::dashBoard">dashBoard</abbr></a></td><td class="text-right">5</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#103"><abbr title="App\Controller\Admin\UserController::newUserAdmin">newUserAdmin</abbr></a></td><td class="text-right">5</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#169"><abbr title="App\Controller\Admin\UserController::edit">edit</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#189"><abbr title="App\Controller\Admin\CustomerController::edit">edit</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#100"><abbr title="App\Controller\Admin\CustomerController::newCustomer">newCustomer</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Repository/CustomerRepository.php.html#97"><abbr title="App\Repository\CustomerRepository::getMaxCustomerCode">getMaxCustomerCode</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Controller/Admin/LoyaltyCardController.php.html#243"><abbr title="App\Controller\Admin\LoyaltyCardController::edit">edit</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Service/YamlStatsProvider.php.html#31"><abbr title="App\Service\YamlStatsProvider::getStats">getStats</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Controller/Sec/FrontSecurityController.php.html#73"><abbr title="App\Controller\Sec\FrontSecurityController::formInsc">formInsc</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Controller/Admin/CenterController.php.html#121"><abbr title="App\Controller\Admin\CenterController::show">show</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Service/YamlStatsProvider.php.html#19"><abbr title="App\Service\YamlStatsProvider::setStats">setStats</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Repository/LoyaltyCardRepository.php.html#106"><abbr title="App\Repository\LoyaltyCardRepository::loyaltyPointsEarnedTotal">loyaltyPointsEarnedTotal</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Repository/CenterRepository.php.html#28"><abbr title="App\Repository\CenterRepository::getMaxCenterCode">getMaxCenterCode</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Repository/LoyaltyCardRepository.php.html#88"><abbr title="App\Repository\LoyaltyCardRepository::countValidLoyaltyCards">countValidLoyaltyCards</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Repository/CustomerRepository.php.html#142"><abbr title="App\Repository\CustomerRepository::countActiveCustomers">countActiveCustomers</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Repository/CenterRepository.php.html#46"><abbr title="App\Repository\CenterRepository::countCenters">countCenters</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#92"><abbr title="App\Repository\UserRepository::countActiveStaff">countActiveStaff</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Repository/LoyaltyCardRepository.php.html#69"><abbr title="App\Repository\LoyaltyCardRepository::findCustomerByCardCode">findCustomerByCardCode</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Service/FrontMemberService.php.html#29"><abbr title="App\Service\FrontMemberService::getInfoMember">getInfoMember</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#215"><abbr title="App\Controller\Admin\AdminController::loyaltyManager">loyaltyManager</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#51"><abbr title="App\Controller\Admin\AdminController::index">index</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#28"><abbr title="App\Controller\Admin\UserController::index">index</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#54"><abbr title="App\Controller\Admin\CustomerController::indexActivity">indexActivity</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#80"><abbr title="App\Controller\Admin\UserController::indexInactive">indexInactive</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#75"><abbr title="App\Controller\Admin\CustomerController::indexInactive">indexInactive</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Controller/Admin/LoyaltyCardController.php.html#56"><abbr title="App\Controller\Admin\LoyaltyCardController::indexInactive">indexInactive</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#33"><abbr title="App\Controller\Admin\CustomerController::index">index</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Controller/Sec/FrontSecurityController.php.html#32"><abbr title="App\Controller\Sec\FrontSecurityController::login">login</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#292"><abbr title="App\Controller\Admin\CustomerController::deleteFromList">deleteFromList</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Controller/Admin/CustomerController.php.html#320"><abbr title="App\Controller\Admin\CustomerController::enableCustomer">enableCustomer</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Controller/Admin/UserController.php.html#143"><abbr title="App\Controller\Admin\UserController::show">show</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Controller/Admin/AdminController.php.html#96"><abbr title="App\Controller\Admin\AdminController::AdminSearchresults">AdminSearchresults</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Controller/Sec/AdminSecurityController.php.html#18"><abbr title="App\Controller\Sec\AdminSecurityController::login">login</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 5.3.2</a> using <a href="https://secure.php.net/" target="_top">PHP 7.1.18</a> with <a href="https://xdebug.org/">Xdebug 2.6.0</a> and <a href="https://phpunit.de/">PHPUnit 6.5.13</a> at Sun Feb 3 20:52:51 UTC 2019.</small>
+    </p>
+   </footer>
+  </div>
+  <script src=".js/jquery.min.js" type="text/javascript"></script>
+  <script src=".js/bootstrap.min.js" type="text/javascript"></script>
+  <script src=".js/holder.min.js" type="text/javascript"></script>
+  <script src=".js/d3.min.js" type="text/javascript"></script>
+  <script src=".js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([13,0,0,1,1,2,3,3,4,2,5,11], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([67,0,0,1,0,2,4,7,5,18,2,227], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[47.85714285714286,22,"<a href=\"Controller\/Admin\/AdminController.php.html#24\">App\\Controller\\Admin\\AdminController<\/a>"],[56.81818181818182,21,"<a href=\"Controller\/Admin\/CenterController.php.html#24\">App\\Controller\\Admin\\CenterController<\/a>"],[63.20754716981132,26,"<a href=\"Controller\/Admin\/CustomerController.php.html#24\">App\\Controller\\Admin\\CustomerController<\/a>"],[50.877192982456144,24,"<a href=\"Controller\/Admin\/LoyaltyCardController.php.html#24\">App\\Controller\\Admin\\LoyaltyCardController<\/a>"],[53.01204819277109,22,"<a href=\"Controller\/Admin\/UserController.php.html#19\">App\\Controller\\Admin\\UserController<\/a>"],[0,19,"<a href=\"Controller\/Front\/AccountController.php.html#33\">App\\Controller\\Front\\AccountController<\/a>"],[73.33333333333333,5,"<a href=\"Controller\/Front\/FrontController.php.html#14\">App\\Controller\\Front\\FrontController<\/a>"],[75,3,"<a href=\"Controller\/Sec\/AdminSecurityController.php.html#9\">App\\Controller\\Sec\\AdminSecurityController<\/a>"],[66.66666666666666,6,"<a href=\"Controller\/Sec\/FrontSecurityController.php.html#23\">App\\Controller\\Sec\\FrontSecurityController<\/a>"],[0,13,"<a href=\"DataFixtures\/AppFixturesHelper.php.html#14\">App\\DataFixtures\\AppFixturesHelper<\/a>"],[0,17,"<a href=\"DataFixtures\/CenterFixtures.php.html#9\">App\\DataFixtures\\CenterFixtures<\/a>"],[0,10,"<a href=\"DataFixtures\/CustomerActivityFixtures.php.html#16\">App\\DataFixtures\\CustomerActivityFixtures<\/a>"],[0,5,"<a href=\"DataFixtures\/CustomerFixtures.php.html#11\">App\\DataFixtures\\CustomerFixtures<\/a>"],[0,7,"<a href=\"DataFixtures\/LoyaltyCardFixtures.php.html#12\">App\\DataFixtures\\LoyaltyCardFixtures<\/a>"],[0,6,"<a href=\"DataFixtures\/LoyaltyCardRequestFixtures.php.html#16\">App\\DataFixtures\\LoyaltyCardRequestFixtures<\/a>"],[0,3,"<a href=\"DataFixtures\/StatsDashboardFixtures.php.html#14\">App\\DataFixtures\\StatsDashboardFixtures<\/a>"],[0,4,"<a href=\"DataFixtures\/UserFixtures.php.html#10\">App\\DataFixtures\\UserFixtures<\/a>"],[76.71232876712328,54,"<a href=\"Entity\/Center.php.html#15\">App\\Entity\\Center<\/a>"],[90.81632653061224,80,"<a href=\"Entity\/Customer.php.html#19\">App\\Entity\\Customer<\/a>"],[100,78,"<a href=\"Entity\/CustomerActivity.php.html#11\">App\\Entity\\CustomerActivity<\/a>"],[100,32,"<a href=\"Entity\/LoyaltyCard.php.html#13\">App\\Entity\\LoyaltyCard<\/a>"],[100,13,"<a href=\"Entity\/LoyaltyCardRequest.php.html#11\">App\\Entity\\LoyaltyCardRequest<\/a>"],[90.32258064516128,30,"<a href=\"Entity\/User.php.html#12\">App\\Entity\\User<\/a>"],[100,2,"<a href=\"Form\/CenterType.php.html#15\">App\\Form\\CenterType<\/a>"],[0,2,"<a href=\"Form\/CustomerActivityType.php.html#13\">App\\Form\\CustomerActivityType<\/a>"],[100,3,"<a href=\"Form\/CustomerType.php.html#21\">App\\Form\\CustomerType<\/a>"],[100,2,"<a href=\"Form\/FrontCustomerType.php.html#22\">App\\Form\\FrontCustomerType<\/a>"],[23.809523809523807,9,"<a href=\"Form\/KeepValueListener.php.html#28\">App\\Form\\KeepValueListener<\/a>"],[100,11,"<a href=\"Form\/LoyaltyCardType.php.html#21\">App\\Form\\LoyaltyCardType<\/a>"],[100,2,"<a href=\"Form\/UserType.php.html#19\">App\\Form\\UserType<\/a>"],[75,7,"<a href=\"Kernel.php.html#12\">App\\Kernel<\/a>"],[0,3,"<a href=\"Migrations\/Version20190129090809.php.html#13\">DoctrineMigrations\\Version20190129090809<\/a>"],[68.96551724137932,4,"<a href=\"Repository\/CardRequestRepository.php.html#15\">App\\Repository\\CardRequestRepository<\/a>"],[85.18518518518519,8,"<a href=\"Repository\/CenterRepository.php.html#16\">App\\Repository\\CenterRepository<\/a>"],[0,1,"<a href=\"Repository\/CustomerActivityRepository.php.html#15\">App\\Repository\\CustomerActivityRepository<\/a>"],[91.17647058823529,14,"<a href=\"Repository\/CustomerRepository.php.html#17\">App\\Repository\\CustomerRepository<\/a>"],[90.1639344262295,12,"<a href=\"Repository\/LoyaltyCardRepository.php.html#16\">App\\Repository\\LoyaltyCardRepository<\/a>"],[94.87179487179486,7,"<a href=\"Repository\/UserRepository.php.html#16\">App\\Repository\\UserRepository<\/a>"],[100,7,"<a href=\"Service\/AdminUserService.php.html#17\">App\\Service\\AdminUserService<\/a>"],[100,2,"<a href=\"Service\/CardSchemeEncoder.php.html#17\">App\\Service\\CardSchemeEncoder<\/a>"],[80,2,"<a href=\"Service\/FrontMemberService.php.html#19\">App\\Service\\FrontMemberService<\/a>"],[100,1,"<a href=\"Service\/QRCodeEncoder.php.html#14\">App\\Service\\QRCodeEncoder<\/a>"],[33.33333333333333,4,"<a href=\"Service\/Twig\/AppExtension.php.html#11\">App\\Service\\Twig\\AppExtension<\/a>"],[44.44444444444444,4,"<a href=\"Service\/YamlStatsProvider.php.html#16\">App\\Service\\YamlStatsProvider<\/a>"],[0,1,"<a href=\"Controller\/Front\/HelperTrait.php.html#7\">HelperTrait<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,2,"<a href=\"Controller\/Admin\/AdminController.php.html#33\">App\\Controller\\Admin\\AdminController::indexAdmin<\/a>"],[80,2,"<a href=\"Controller\/Admin\/AdminController.php.html#51\">App\\Controller\\Admin\\AdminController::index<\/a>"],[100,1,"<a href=\"Controller\/Admin\/AdminController.php.html#70\">App\\Controller\\Admin\\AdminController::searchBar<\/a>"],[87.5,2,"<a href=\"Controller\/Admin\/AdminController.php.html#96\">App\\Controller\\Admin\\AdminController::AdminSearchresults<\/a>"],[80,5,"<a href=\"Controller\/Admin\/AdminController.php.html#130\">App\\Controller\\Admin\\AdminController::dashBoard<\/a>"],[80,2,"<a href=\"Controller\/Admin\/AdminController.php.html#215\">App\\Controller\\Admin\\AdminController::loyaltyManager<\/a>"],[0,2,"<a href=\"Controller\/Admin\/AdminController.php.html#237\">App\\Controller\\Admin\\AdminController::ValidateCard<\/a>"],[0,2,"<a href=\"Controller\/Admin\/AdminController.php.html#293\">App\\Controller\\Admin\\AdminController::RefuseCard<\/a>"],[0,2,"<a href=\"Controller\/Admin\/AdminController.php.html#322\">App\\Controller\\Admin\\AdminController::InformCustomerCard<\/a>"],[0,2,"<a href=\"Controller\/Admin\/AdminController.php.html#362\">App\\Controller\\Admin\\AdminController::CustomerCardWithDraw<\/a>"],[100,2,"<a href=\"Controller\/Admin\/CenterController.php.html#34\">App\\Controller\\Admin\\CenterController::index<\/a>"],[51.724137931034484,6,"<a href=\"Controller\/Admin\/CenterController.php.html#55\">App\\Controller\\Admin\\CenterController::newCenter<\/a>"],[84.61538461538461,3,"<a href=\"Controller\/Admin\/CenterController.php.html#121\">App\\Controller\\Admin\\CenterController::show<\/a>"],[57.57575757575758,7,"<a href=\"Controller\/Admin\/CenterController.php.html#156\">App\\Controller\\Admin\\CenterController::edit<\/a>"],[0,3,"<a href=\"Controller\/Admin\/CenterController.php.html#248\">App\\Controller\\Admin\\CenterController::delete<\/a>"],[83.33333333333334,2,"<a href=\"Controller\/Admin\/CustomerController.php.html#33\">App\\Controller\\Admin\\CustomerController::index<\/a>"],[80,2,"<a href=\"Controller\/Admin\/CustomerController.php.html#54\">App\\Controller\\Admin\\CustomerController::indexActivity<\/a>"],[83.33333333333334,2,"<a href=\"Controller\/Admin\/CustomerController.php.html#75\">App\\Controller\\Admin\\CustomerController::indexInactive<\/a>"],[65,4,"<a href=\"Controller\/Admin\/CustomerController.php.html#100\">App\\Controller\\Admin\\CustomerController::newCustomer<\/a>"],[93.75,2,"<a href=\"Controller\/Admin\/CustomerController.php.html#149\">App\\Controller\\Admin\\CustomerController::show<\/a>"],[64.28571428571429,4,"<a href=\"Controller\/Admin\/CustomerController.php.html#189\">App\\Controller\\Admin\\CustomerController::edit<\/a>"],[0,4,"<a href=\"Controller\/Admin\/CustomerController.php.html#229\">App\\Controller\\Admin\\CustomerController::editActivity<\/a>"],[0,2,"<a href=\"Controller\/Admin\/CustomerController.php.html#271\">App\\Controller\\Admin\\CustomerController::delete<\/a>"],[88.88888888888889,2,"<a href=\"Controller\/Admin\/CustomerController.php.html#292\">App\\Controller\\Admin\\CustomerController::deleteFromList<\/a>"],[88.88888888888889,2,"<a href=\"Controller\/Admin\/CustomerController.php.html#320\">App\\Controller\\Admin\\CustomerController::enableCustomer<\/a>"],[100,2,"<a href=\"Controller\/Admin\/LoyaltyCardController.php.html#33\">App\\Controller\\Admin\\LoyaltyCardController::index<\/a>"],[83.33333333333334,2,"<a href=\"Controller\/Admin\/LoyaltyCardController.php.html#56\">App\\Controller\\Admin\\LoyaltyCardController::indexInactive<\/a>"],[42.30769230769231,4,"<a href=\"Controller\/Admin\/LoyaltyCardController.php.html#80\">App\\Controller\\Admin\\LoyaltyCardController::newLoyaltyCard<\/a>"],[44.44444444444444,4,"<a href=\"Controller\/Admin\/LoyaltyCardController.php.html#138\">App\\Controller\\Admin\\LoyaltyCardController::newCustomerCard<\/a>"],[100,2,"<a href=\"Controller\/Admin\/LoyaltyCardController.php.html#197\">App\\Controller\\Admin\\LoyaltyCardController::show<\/a>"],[83.33333333333334,4,"<a href=\"Controller\/Admin\/LoyaltyCardController.php.html#243\">App\\Controller\\Admin\\LoyaltyCardController::edit<\/a>"],[0,2,"<a href=\"Controller\/Admin\/LoyaltyCardController.php.html#276\">App\\Controller\\Admin\\LoyaltyCardController::delete<\/a>"],[0,2,"<a href=\"Controller\/Admin\/LoyaltyCardController.php.html#297\">App\\Controller\\Admin\\LoyaltyCardController::disabledCard<\/a>"],[0,2,"<a href=\"Controller\/Admin\/LoyaltyCardController.php.html#323\">App\\Controller\\Admin\\LoyaltyCardController::enableCard<\/a>"],[80,2,"<a href=\"Controller\/Admin\/UserController.php.html#28\">App\\Controller\\Admin\\UserController::index<\/a>"],[90.9090909090909,2,"<a href=\"Controller\/Admin\/UserController.php.html#48\">App\\Controller\\Admin\\UserController::indexByCenter<\/a>"],[80,2,"<a href=\"Controller\/Admin\/UserController.php.html#80\">App\\Controller\\Admin\\UserController::indexInactive<\/a>"],[58.82352941176471,4,"<a href=\"Controller\/Admin\/UserController.php.html#103\">App\\Controller\\Admin\\UserController::newUserAdmin<\/a>"],[87.5,2,"<a href=\"Controller\/Admin\/UserController.php.html#143\">App\\Controller\\Admin\\UserController::show<\/a>"],[64.28571428571429,4,"<a href=\"Controller\/Admin\/UserController.php.html#169\">App\\Controller\\Admin\\UserController::edit<\/a>"],[0,2,"<a href=\"Controller\/Admin\/UserController.php.html#208\">App\\Controller\\Admin\\UserController::delete<\/a>"],[0,2,"<a href=\"Controller\/Admin\/UserController.php.html#229\">App\\Controller\\Admin\\UserController::disableUser<\/a>"],[0,2,"<a href=\"Controller\/Admin\/UserController.php.html#255\">App\\Controller\\Admin\\UserController::enableUser<\/a>"],[0,4,"<a href=\"Controller\/Front\/AccountController.php.html#36\">App\\Controller\\Front\\AccountController::getMember<\/a>"],[0,2,"<a href=\"Controller\/Front\/AccountController.php.html#65\">App\\Controller\\Front\\AccountController::accountIndex<\/a>"],[0,2,"<a href=\"Controller\/Front\/AccountController.php.html#103\">App\\Controller\\Front\\AccountController::accountScores<\/a>"],[0,3,"<a href=\"Controller\/Front\/AccountController.php.html#139\">App\\Controller\\Front\\AccountController::cardRequest<\/a>"],[0,1,"<a href=\"Controller\/Front\/AccountController.php.html#171\">App\\Controller\\Front\\AccountController::cardDisplay<\/a>"],[0,7,"<a href=\"Controller\/Front\/AccountController.php.html#188\">App\\Controller\\Front\\AccountController::memberEdit<\/a>"],[100,1,"<a href=\"Controller\/Front\/FrontController.php.html#22\">App\\Controller\\Front\\FrontController::index<\/a>"],[0,1,"<a href=\"Controller\/Front\/FrontController.php.html#40\">App\\Controller\\Front\\FrontController::DisplayCenter<\/a>"],[100,1,"<a href=\"Controller\/Front\/FrontController.php.html#55\">App\\Controller\\Front\\FrontController::DisplayJeu<\/a>"],[100,1,"<a href=\"Controller\/Front\/FrontController.php.html#68\">App\\Controller\\Front\\FrontController::showGamePoints<\/a>"],[100,1,"<a href=\"Controller\/Front\/FrontController.php.html#80\">App\\Controller\\Front\\FrontController::DisplayCenters<\/a>"],[85.71428571428571,2,"<a href=\"Controller\/Sec\/AdminSecurityController.php.html#18\">App\\Controller\\Sec\\AdminSecurityController::login<\/a>"],[0,1,"<a href=\"Controller\/Sec\/AdminSecurityController.php.html#42\">App\\Controller\\Sec\\AdminSecurityController::logout<\/a>"],[87.5,2,"<a href=\"Controller\/Sec\/FrontSecurityController.php.html#32\">App\\Controller\\Sec\\FrontSecurityController::login<\/a>"],[0,1,"<a href=\"Controller\/Sec\/FrontSecurityController.php.html#58\">App\\Controller\\Sec\\FrontSecurityController::logout<\/a>"],[62.96296296296296,3,"<a href=\"Controller\/Sec\/FrontSecurityController.php.html#73\">App\\Controller\\Sec\\FrontSecurityController::formInsc<\/a>"],[0,1,"<a href=\"DataFixtures\/AppFixturesHelper.php.html#21\">App\\DataFixtures\\AppFixturesHelper::generateFirstName<\/a>"],[0,1,"<a href=\"DataFixtures\/AppFixturesHelper.php.html#34\">App\\DataFixtures\\AppFixturesHelper::generateLastName<\/a>"],[0,1,"<a href=\"DataFixtures\/AppFixturesHelper.php.html#47\">App\\DataFixtures\\AppFixturesHelper::generateNickName<\/a>"],[0,4,"<a href=\"DataFixtures\/AppFixturesHelper.php.html#65\">App\\DataFixtures\\AppFixturesHelper::generateRandDate<\/a>"],[0,1,"<a href=\"DataFixtures\/AppFixturesHelper.php.html#85\">App\\DataFixtures\\AppFixturesHelper::generateAddress<\/a>"],[0,1,"<a href=\"DataFixtures\/AppFixturesHelper.php.html#98\">App\\DataFixtures\\AppFixturesHelper::generateCity<\/a>"],[0,1,"<a href=\"DataFixtures\/AppFixturesHelper.php.html#134\">App\\DataFixtures\\AppFixturesHelper::stripAccents<\/a>"],[0,2,"<a href=\"DataFixtures\/AppFixturesHelper.php.html#145\">App\\DataFixtures\\AppFixturesHelper::dateDiffInWeeks<\/a>"],[0,1,"<a href=\"DataFixtures\/AppFixturesHelper.php.html#165\">App\\DataFixtures\\AppFixturesHelper::randomFloat<\/a>"],[0,17,"<a href=\"DataFixtures\/CenterFixtures.php.html#11\">App\\DataFixtures\\CenterFixtures::load<\/a>"],[0,9,"<a href=\"DataFixtures\/CustomerActivityFixtures.php.html#18\">App\\DataFixtures\\CustomerActivityFixtures::load<\/a>"],[0,1,"<a href=\"DataFixtures\/CustomerActivityFixtures.php.html#173\">App\\DataFixtures\\CustomerActivityFixtures::getDependencies<\/a>"],[0,4,"<a href=\"DataFixtures\/CustomerFixtures.php.html#13\">App\\DataFixtures\\CustomerFixtures::load<\/a>"],[0,1,"<a href=\"DataFixtures\/CustomerFixtures.php.html#68\">App\\DataFixtures\\CustomerFixtures::getDependencies<\/a>"],[0,5,"<a href=\"DataFixtures\/LoyaltyCardFixtures.php.html#18\">App\\DataFixtures\\LoyaltyCardFixtures::load<\/a>"],[0,1,"<a href=\"DataFixtures\/LoyaltyCardFixtures.php.html#71\">App\\DataFixtures\\LoyaltyCardFixtures::generateQRCode<\/a>"],[0,1,"<a href=\"DataFixtures\/LoyaltyCardFixtures.php.html#82\">App\\DataFixtures\\LoyaltyCardFixtures::getDependencies<\/a>"],[0,5,"<a href=\"DataFixtures\/LoyaltyCardRequestFixtures.php.html#18\">App\\DataFixtures\\LoyaltyCardRequestFixtures::load<\/a>"],[0,1,"<a href=\"DataFixtures\/LoyaltyCardRequestFixtures.php.html#54\">App\\DataFixtures\\LoyaltyCardRequestFixtures::getDependencies<\/a>"],[0,2,"<a href=\"DataFixtures\/StatsDashboardFixtures.php.html#17\">App\\DataFixtures\\StatsDashboardFixtures::load<\/a>"],[0,1,"<a href=\"DataFixtures\/StatsDashboardFixtures.php.html#63\">App\\DataFixtures\\StatsDashboardFixtures::getDependencies<\/a>"],[0,3,"<a href=\"DataFixtures\/UserFixtures.php.html#12\">App\\DataFixtures\\UserFixtures::load<\/a>"],[0,1,"<a href=\"DataFixtures\/UserFixtures.php.html#71\">App\\DataFixtures\\UserFixtures::getDependencies<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#95\">App\\Entity\\Center::__construct<\/a>"],[100,2,"<a href=\"Entity\/Center.php.html#105\">App\\Entity\\Center::getId<\/a>"],[100,2,"<a href=\"Entity\/Center.php.html#110\">App\\Entity\\Center::getName<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#115\">App\\Entity\\Center::setName<\/a>"],[100,2,"<a href=\"Entity\/Center.php.html#122\">App\\Entity\\Center::getPhone<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#127\">App\\Entity\\Center::setPhone<\/a>"],[100,2,"<a href=\"Entity\/Center.php.html#134\">App\\Entity\\Center::getEmail<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#139\">App\\Entity\\Center::setEmail<\/a>"],[100,2,"<a href=\"Entity\/Center.php.html#146\">App\\Entity\\Center::getAddress<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#151\">App\\Entity\\Center::setAddress<\/a>"],[100,2,"<a href=\"Entity\/Center.php.html#158\">App\\Entity\\Center::getZipCode<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#163\">App\\Entity\\Center::setZipCode<\/a>"],[100,2,"<a href=\"Entity\/Center.php.html#170\">App\\Entity\\Center::getCity<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#175\">App\\Entity\\Center::setCity<\/a>"],[100,2,"<a href=\"Entity\/Center.php.html#182\">App\\Entity\\Center::getCountry<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#187\">App\\Entity\\Center::setCountry<\/a>"],[100,2,"<a href=\"Entity\/Center.php.html#194\">App\\Entity\\Center::getCenterCode<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#199\">App\\Entity\\Center::setCenterCode<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#209\">App\\Entity\\Center::getCardsEmitted<\/a>"],[100,2,"<a href=\"Entity\/Center.php.html#214\">App\\Entity\\Center::addCardsEmitted<\/a>"],[0,3,"<a href=\"Entity\/Center.php.html#224\">App\\Entity\\Center::removeCardsEmitted<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#240\">App\\Entity\\Center::getUsers<\/a>"],[100,2,"<a href=\"Entity\/Center.php.html#245\">App\\Entity\\Center::addUser<\/a>"],[0,3,"<a href=\"Entity\/Center.php.html#255\">App\\Entity\\Center::removeUser<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#271\">App\\Entity\\Center::getCustomers<\/a>"],[100,2,"<a href=\"Entity\/Center.php.html#276\">App\\Entity\\Center::addCustomer<\/a>"],[0,3,"<a href=\"Entity\/Center.php.html#286\">App\\Entity\\Center::removeCustomer<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#302\">App\\Entity\\Center::getSlug<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#311\">App\\Entity\\Center::setSlug<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#319\">App\\Entity\\Center::getPhone_Format<\/a>"],[0,1,"<a href=\"Entity\/Center.php.html#328\">App\\Entity\\Center::setPhone_Format<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#336\">App\\Entity\\Center::getCenterImage<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#344\">App\\Entity\\Center::setCenterImage<\/a>"],[100,2,"<a href=\"Entity\/Center.php.html#351\">App\\Entity\\Center::getPublished<\/a>"],[100,1,"<a href=\"Entity\/Center.php.html#356\">App\\Entity\\Center::setPublished<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#133\">App\\Entity\\Customer::__construct<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#145\">App\\Entity\\Customer::getId<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#150\">App\\Entity\\Customer::getFirstName<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#155\">App\\Entity\\Customer::setFirstName<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#162\">App\\Entity\\Customer::getLastName<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#167\">App\\Entity\\Customer::setLastName<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#174\">App\\Entity\\Customer::getNickname<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#179\">App\\Entity\\Customer::setNickname<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#186\">App\\Entity\\Customer::getEmail<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#191\">App\\Entity\\Customer::setEmail<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#205\">App\\Entity\\Customer::getPassword<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#210\">App\\Entity\\Customer::setPassword<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#217\">App\\Entity\\Customer::getPhone<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#222\">App\\Entity\\Customer::setPhone<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#229\">App\\Entity\\Customer::getAddress<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#234\">App\\Entity\\Customer::setAddress<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#241\">App\\Entity\\Customer::getZipCode<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#246\">App\\Entity\\Customer::setZipCode<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#253\">App\\Entity\\Customer::getCity<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#258\">App\\Entity\\Customer::setCity<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#265\">App\\Entity\\Customer::getCountry<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#270\">App\\Entity\\Customer::setCountry<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#277\">App\\Entity\\Customer::getCustomerCode<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#282\">App\\Entity\\Customer::setCustomerCode<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#289\">App\\Entity\\Customer::getRegistrationDate<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#294\">App\\Entity\\Customer::setRegistrationDate<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#301\">App\\Entity\\Customer::getBirthDate<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#306\">App\\Entity\\Customer::setBirthDate<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#316\">App\\Entity\\Customer::getCards<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#321\">App\\Entity\\Customer::addCard<\/a>"],[100,3,"<a href=\"Entity\/Customer.php.html#331\">App\\Entity\\Customer::removeCard<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#347\">App\\Entity\\Customer::getCardRequest<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#352\">App\\Entity\\Customer::addCardRequest<\/a>"],[100,3,"<a href=\"Entity\/Customer.php.html#362\">App\\Entity\\Customer::removeCardRequest<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#375\">App\\Entity\\Customer::getCustomerActivity<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#380\">App\\Entity\\Customer::setCustomerActivity<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#392\">App\\Entity\\Customer::getIsActive<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#397\">App\\Entity\\Customer::setIsActive<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#404\">App\\Entity\\Customer::getRoles<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#409\">App\\Entity\\Customer::setRoles<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#416\">App\\Entity\\Customer::getPreferredCenter<\/a>"],[100,2,"<a href=\"Entity\/Customer.php.html#421\">App\\Entity\\Customer::setPreferredCenter<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#432\">App\\Entity\\Customer::getFullName<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#444\">App\\Entity\\Customer::getSalt<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#454\">App\\Entity\\Customer::getUsername<\/a>"],[0,1,"<a href=\"Entity\/Customer.php.html#465\">App\\Entity\\Customer::eraseCredentials<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#473\">App\\Entity\\Customer::getImageProfile<\/a>"],[100,1,"<a href=\"Entity\/Customer.php.html#481\">App\\Entity\\Customer::setImageProfile<\/a>"],[0,1,"<a href=\"Entity\/Customer.php.html#492\">App\\Entity\\Customer::serialize<\/a>"],[0,1,"<a href=\"Entity\/Customer.php.html#510\">App\\Entity\\Customer::unserialize<\/a>"],[100,1,"<a href=\"Entity\/CustomerActivity.php.html#120\">App\\Entity\\CustomerActivity::__construct<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#142\">App\\Entity\\CustomerActivity::getId<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#147\">App\\Entity\\CustomerActivity::getCustomer<\/a>"],[100,1,"<a href=\"Entity\/CustomerActivity.php.html#152\">App\\Entity\\CustomerActivity::setCustomer<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#159\">App\\Entity\\CustomerActivity::getGamesPlayed<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#164\">App\\Entity\\CustomerActivity::setGamesPlayed<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#171\">App\\Entity\\CustomerActivity::getGamesWon<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#176\">App\\Entity\\CustomerActivity::setGamesWon<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#183\">App\\Entity\\CustomerActivity::getSoloVictories<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#188\">App\\Entity\\CustomerActivity::setSoloVictories<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#195\">App\\Entity\\CustomerActivity::getTeamVictories<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#200\">App\\Entity\\CustomerActivity::setTeamVictories<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#207\">App\\Entity\\CustomerActivity::getTournamentsPlayed<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#212\">App\\Entity\\CustomerActivity::setTournamentsPlayed<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#219\">App\\Entity\\CustomerActivity::getTournamentsWon<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#224\">App\\Entity\\CustomerActivity::setTournamentsWon<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#231\">App\\Entity\\CustomerActivity::getMaxConsecutiveGamesWon<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#236\">App\\Entity\\CustomerActivity::setMaxConsecutiveGamesWon<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#243\">App\\Entity\\CustomerActivity::getAverageMissesPerGame<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#248\">App\\Entity\\CustomerActivity::setAverageMissesPerGame<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#255\">App\\Entity\\CustomerActivity::getAverageHitsPerGame<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#260\">App\\Entity\\CustomerActivity::setAverageHitsPerGame<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#267\">App\\Entity\\CustomerActivity::getAveragePointsPerGame<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#272\">App\\Entity\\CustomerActivity::setAveragePointsPerGame<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#279\">App\\Entity\\CustomerActivity::getTotalPointsAllTime<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#284\">App\\Entity\\CustomerActivity::setTotalPointsAllTime<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#291\">App\\Entity\\CustomerActivity::getFriendsInvitedToGames<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#296\">App\\Entity\\CustomerActivity::setFriendsInvitedToGames<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#303\">App\\Entity\\CustomerActivity::getCustomersSponsored<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#308\">App\\Entity\\CustomerActivity::setCustomersSponsored<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#315\">App\\Entity\\CustomerActivity::getAverageSpendingPerMonth<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#320\">App\\Entity\\CustomerActivity::setAverageSpendingPerMonth<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#327\">App\\Entity\\CustomerActivity::getTotalSpendingAllTime<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#332\">App\\Entity\\CustomerActivity::setTotalSpendingAllTime<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#339\">App\\Entity\\CustomerActivity::getAverageActivitiesPerMonth<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#344\">App\\Entity\\CustomerActivity::setAverageActivitiesPerMonth<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#351\">App\\Entity\\CustomerActivity::getTotalActivitiesAllTime<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#356\">App\\Entity\\CustomerActivity::setTotalActivitiesAllTime<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#363\">App\\Entity\\CustomerActivity::getLastActivity<\/a>"],[100,2,"<a href=\"Entity\/CustomerActivity.php.html#368\">App\\Entity\\CustomerActivity::setLastActivity<\/a>"],[100,1,"<a href=\"Entity\/LoyaltyCard.php.html#71\">App\\Entity\\LoyaltyCard::__construct<\/a>"],[100,2,"<a href=\"Entity\/LoyaltyCard.php.html#79\">App\\Entity\\LoyaltyCard::getId<\/a>"],[100,2,"<a href=\"Entity\/LoyaltyCard.php.html#84\">App\\Entity\\LoyaltyCard::getCardCode<\/a>"],[100,1,"<a href=\"Entity\/LoyaltyCard.php.html#89\">App\\Entity\\LoyaltyCard::setCardCode<\/a>"],[100,2,"<a href=\"Entity\/LoyaltyCard.php.html#96\">App\\Entity\\LoyaltyCard::getQRCode<\/a>"],[100,2,"<a href=\"Entity\/LoyaltyCard.php.html#101\">App\\Entity\\LoyaltyCard::setQRCode<\/a>"],[100,2,"<a href=\"Entity\/LoyaltyCard.php.html#108\">App\\Entity\\LoyaltyCard::getDateOfIssue<\/a>"],[100,1,"<a href=\"Entity\/LoyaltyCard.php.html#113\">App\\Entity\\LoyaltyCard::setDateOfIssue<\/a>"],[100,2,"<a href=\"Entity\/LoyaltyCard.php.html#120\">App\\Entity\\LoyaltyCard::getIsValid<\/a>"],[100,1,"<a href=\"Entity\/LoyaltyCard.php.html#125\">App\\Entity\\LoyaltyCard::setIsValid<\/a>"],[100,2,"<a href=\"Entity\/LoyaltyCard.php.html#132\">App\\Entity\\LoyaltyCard::getIsPhoneAppActive<\/a>"],[100,1,"<a href=\"Entity\/LoyaltyCard.php.html#137\">App\\Entity\\LoyaltyCard::setIsPhoneAppActive<\/a>"],[100,2,"<a href=\"Entity\/LoyaltyCard.php.html#144\">App\\Entity\\LoyaltyCard::getLoyaltyPoints<\/a>"],[100,1,"<a href=\"Entity\/LoyaltyCard.php.html#149\">App\\Entity\\LoyaltyCard::setLoyaltyPoints<\/a>"],[100,2,"<a href=\"Entity\/LoyaltyCard.php.html#156\">App\\Entity\\LoyaltyCard::getCustomer<\/a>"],[100,2,"<a href=\"Entity\/LoyaltyCard.php.html#161\">App\\Entity\\LoyaltyCard::setCustomer<\/a>"],[100,2,"<a href=\"Entity\/LoyaltyCard.php.html#168\">App\\Entity\\LoyaltyCard::getCenter<\/a>"],[100,2,"<a href=\"Entity\/LoyaltyCard.php.html#173\">App\\Entity\\LoyaltyCard::setCenter<\/a>"],[100,1,"<a href=\"Entity\/LoyaltyCard.php.html#180\">App\\Entity\\LoyaltyCard::getStatus<\/a>"],[100,1,"<a href=\"Entity\/LoyaltyCard.php.html#185\">App\\Entity\\LoyaltyCard::setStatus<\/a>"],[100,1,"<a href=\"Entity\/LoyaltyCardRequest.php.html#40\">App\\Entity\\LoyaltyCardRequest::__construct<\/a>"],[100,2,"<a href=\"Entity\/LoyaltyCardRequest.php.html#46\">App\\Entity\\LoyaltyCardRequest::getId<\/a>"],[100,2,"<a href=\"Entity\/LoyaltyCardRequest.php.html#51\">App\\Entity\\LoyaltyCardRequest::getCustomer<\/a>"],[100,2,"<a href=\"Entity\/LoyaltyCardRequest.php.html#56\">App\\Entity\\LoyaltyCardRequest::setCustomer<\/a>"],[100,2,"<a href=\"Entity\/LoyaltyCardRequest.php.html#63\">App\\Entity\\LoyaltyCardRequest::getDateOfRequest<\/a>"],[100,1,"<a href=\"Entity\/LoyaltyCardRequest.php.html#68\">App\\Entity\\LoyaltyCardRequest::setDateOfRequest<\/a>"],[100,2,"<a href=\"Entity\/LoyaltyCardRequest.php.html#75\">App\\Entity\\LoyaltyCardRequest::getStatus<\/a>"],[100,1,"<a href=\"Entity\/LoyaltyCardRequest.php.html#80\">App\\Entity\\LoyaltyCardRequest::setStatus<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#62\">App\\Entity\\User::__construct<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#71\">App\\Entity\\User::getId<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#76\">App\\Entity\\User::getFirstName<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#81\">App\\Entity\\User::setFirstName<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#88\">App\\Entity\\User::getLastName<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#93\">App\\Entity\\User::setLastName<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#100\">App\\Entity\\User::getEmail<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#105\">App\\Entity\\User::setEmail<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#112\">App\\Entity\\User::getPassword<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#117\">App\\Entity\\User::setPassword<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#133\">App\\Entity\\User::getIsActive<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#138\">App\\Entity\\User::setIsActive<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#145\">App\\Entity\\User::getRoles<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#150\">App\\Entity\\User::setRoles<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#157\">App\\Entity\\User::getCenter<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#162\">App\\Entity\\User::setCenter<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#174\">App\\Entity\\User::getSalt<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#183\">App\\Entity\\User::getUsername<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#194\">App\\Entity\\User::eraseCredentials<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#202\">App\\Entity\\User::getImageProfile<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#210\">App\\Entity\\User::setImageProfile<\/a>"],[100,1,"<a href=\"Form\/CenterType.php.html#17\">App\\Form\\CenterType::buildForm<\/a>"],[100,1,"<a href=\"Form\/CenterType.php.html#68\">App\\Form\\CenterType::configureOptions<\/a>"],[0,1,"<a href=\"Form\/CustomerActivityType.php.html#15\">App\\Form\\CustomerActivityType::buildForm<\/a>"],[0,1,"<a href=\"Form\/CustomerActivityType.php.html#60\">App\\Form\\CustomerActivityType::configureOptions<\/a>"],[100,1,"<a href=\"Form\/CustomerType.php.html#33\">App\\Form\\CustomerType::__construct<\/a>"],[100,1,"<a href=\"Form\/CustomerType.php.html#38\">App\\Form\\CustomerType::buildForm<\/a>"],[100,1,"<a href=\"Form\/CustomerType.php.html#113\">App\\Form\\CustomerType::configureOptions<\/a>"],[100,1,"<a href=\"Form\/FrontCustomerType.php.html#24\">App\\Form\\FrontCustomerType::buildForm<\/a>"],[100,1,"<a href=\"Form\/FrontCustomerType.php.html#106\">App\\Form\\FrontCustomerType::configureOptions<\/a>"],[100,2,"<a href=\"Form\/KeepValueListener.php.html#50\">App\\Form\\KeepValueListener::__construct<\/a>"],[100,1,"<a href=\"Form\/KeepValueListener.php.html#59\">App\\Form\\KeepValueListener::getSubscribedEvents<\/a>"],[0,5,"<a href=\"Form\/KeepValueListener.php.html#66\">App\\Form\\KeepValueListener::onPreSubmit<\/a>"],[0,1,"<a href=\"Form\/KeepValueListener.php.html#87\">App\\Form\\KeepValueListener::asBool<\/a>"],[100,3,"<a href=\"Form\/LoyaltyCardType.php.html#25\">App\\Form\\LoyaltyCardType::buildForm<\/a>"],[100,3,"<a href=\"Form\/LoyaltyCardType.php.html#29\">App\\Form\\LoyaltyCardType::anonymousFunction:29#236<\/a>"],[100,1,"<a href=\"Form\/LoyaltyCardType.php.html#50\">App\\Form\\LoyaltyCardType::anonymousFunction:50#383<\/a>"],[100,1,"<a href=\"Form\/LoyaltyCardType.php.html#54\">App\\Form\\LoyaltyCardType::anonymousFunction:54#409<\/a>"],[100,1,"<a href=\"Form\/LoyaltyCardType.php.html#101\">App\\Form\\LoyaltyCardType::anonymousFunction:101#695<\/a>"],[100,1,"<a href=\"Form\/LoyaltyCardType.php.html#104\">App\\Form\\LoyaltyCardType::anonymousFunction:104#721<\/a>"],[100,1,"<a href=\"Form\/LoyaltyCardType.php.html#139\">App\\Form\\LoyaltyCardType::configureOptions<\/a>"],[100,1,"<a href=\"Form\/UserType.php.html#21\">App\\Form\\UserType::buildForm<\/a>"],[100,1,"<a href=\"Form\/UserType.php.html#66\">App\\Form\\UserType::configureOptions<\/a>"],[100,1,"<a href=\"Kernel.php.html#18\">App\\Kernel::getCacheDir<\/a>"],[100,1,"<a href=\"Kernel.php.html#23\">App\\Kernel::getLogDir<\/a>"],[100,3,"<a href=\"Kernel.php.html#28\">App\\Kernel::registerBundles<\/a>"],[100,1,"<a href=\"Kernel.php.html#38\">App\\Kernel::configureContainer<\/a>"],[0,1,"<a href=\"Kernel.php.html#50\">App\\Kernel::configureRoutes<\/a>"],[0,1,"<a href=\"Migrations\/Version20190129090809.php.html#15\">DoctrineMigrations\\Version20190129090809::getDescription<\/a>"],[0,1,"<a href=\"Migrations\/Version20190129090809.php.html#20\">DoctrineMigrations\\Version20190129090809::up<\/a>"],[0,1,"<a href=\"Migrations\/Version20190129090809.php.html#39\">DoctrineMigrations\\Version20190129090809::down<\/a>"],[100,1,"<a href=\"Repository\/CardRequestRepository.php.html#17\">App\\Repository\\CardRequestRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/CardRequestRepository.php.html#23\">App\\Repository\\CardRequestRepository::findNewRequest<\/a>"],[100,1,"<a href=\"Repository\/CardRequestRepository.php.html#38\">App\\Repository\\CardRequestRepository::findCardDisposal<\/a>"],[0,1,"<a href=\"Repository\/CardRequestRepository.php.html#53\">App\\Repository\\CardRequestRepository::findRequestCard<\/a>"],[100,1,"<a href=\"Repository\/CenterRepository.php.html#18\">App\\Repository\\CenterRepository::__construct<\/a>"],[66.66666666666666,2,"<a href=\"Repository\/CenterRepository.php.html#28\">App\\Repository\\CenterRepository::getMaxCenterCode<\/a>"],[71.42857142857143,2,"<a href=\"Repository\/CenterRepository.php.html#46\">App\\Repository\\CenterRepository::countCenters<\/a>"],[100,1,"<a href=\"Repository\/CenterRepository.php.html#65\">App\\Repository\\CenterRepository::findCentersAndStaff<\/a>"],[100,1,"<a href=\"Repository\/CenterRepository.php.html#80\">App\\Repository\\CenterRepository::createPublishedCenterQueryBuilder<\/a>"],[100,1,"<a href=\"Repository\/CenterRepository.php.html#91\">App\\Repository\\CenterRepository::findPublishedCenters<\/a>"],[0,1,"<a href=\"Repository\/CustomerActivityRepository.php.html#17\">App\\Repository\\CustomerActivityRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/CustomerRepository.php.html#21\">App\\Repository\\CustomerRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/CustomerRepository.php.html#31\">App\\Repository\\CustomerRepository::findAllActiveCustomers<\/a>"],[100,1,"<a href=\"Repository\/CustomerRepository.php.html#45\">App\\Repository\\CustomerRepository::findAllInactiveCustomers<\/a>"],[100,1,"<a href=\"Repository\/CustomerRepository.php.html#60\">App\\Repository\\CustomerRepository::findActiveCustomersActivities<\/a>"],[100,1,"<a href=\"Repository\/CustomerRepository.php.html#78\">App\\Repository\\CustomerRepository::findCustomersByCenter<\/a>"],[50,3,"<a href=\"Repository\/CustomerRepository.php.html#97\">App\\Repository\\CustomerRepository::getMaxCustomerCode<\/a>"],[100,3,"<a href=\"Repository\/CustomerRepository.php.html#118\">App\\Repository\\CustomerRepository::findBySearchCriteria<\/a>"],[71.42857142857143,2,"<a href=\"Repository\/CustomerRepository.php.html#142\">App\\Repository\\CustomerRepository::countActiveCustomers<\/a>"],[100,1,"<a href=\"Repository\/CustomerRepository.php.html#159\">App\\Repository\\CustomerRepository::CustomersWithoutCard<\/a>"],[100,1,"<a href=\"Repository\/LoyaltyCardRepository.php.html#18\">App\\Repository\\LoyaltyCardRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/LoyaltyCardRepository.php.html#26\">App\\Repository\\LoyaltyCardRepository::findAllCardsAndCustomers<\/a>"],[100,1,"<a href=\"Repository\/LoyaltyCardRepository.php.html#39\">App\\Repository\\LoyaltyCardRepository::findAllValidCardsAndCustomers<\/a>"],[100,1,"<a href=\"Repository\/LoyaltyCardRepository.php.html#53\">App\\Repository\\LoyaltyCardRepository::findAllInactiveCardsAndCustomers<\/a>"],[77.77777777777779,2,"<a href=\"Repository\/LoyaltyCardRepository.php.html#69\">App\\Repository\\LoyaltyCardRepository::findCustomerByCardCode<\/a>"],[71.42857142857143,2,"<a href=\"Repository\/LoyaltyCardRepository.php.html#88\">App\\Repository\\LoyaltyCardRepository::countValidLoyaltyCards<\/a>"],[66.66666666666666,2,"<a href=\"Repository\/LoyaltyCardRepository.php.html#106\">App\\Repository\\LoyaltyCardRepository::loyaltyPointsEarnedTotal<\/a>"],[100,1,"<a href=\"Repository\/LoyaltyCardRepository.php.html#122\">App\\Repository\\LoyaltyCardRepository::findValidatedCards<\/a>"],[100,1,"<a href=\"Repository\/LoyaltyCardRepository.php.html#137\">App\\Repository\\LoyaltyCardRepository::findDeliveredCards<\/a>"],[100,1,"<a href=\"Repository\/UserRepository.php.html#18\">App\\Repository\\UserRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/UserRepository.php.html#28\">App\\Repository\\UserRepository::findAllActiveUsers<\/a>"],[100,1,"<a href=\"Repository\/UserRepository.php.html#45\">App\\Repository\\UserRepository::findAllUsers<\/a>"],[100,1,"<a href=\"Repository\/UserRepository.php.html#62\">App\\Repository\\UserRepository::findAllInactiveUsers<\/a>"],[100,1,"<a href=\"Repository\/UserRepository.php.html#77\">App\\Repository\\UserRepository::findUnassignedAdmins<\/a>"],[77.77777777777779,2,"<a href=\"Repository\/UserRepository.php.html#92\">App\\Repository\\UserRepository::countActiveStaff<\/a>"],[100,7,"<a href=\"Service\/AdminUserService.php.html#24\">App\\Service\\AdminUserService::getLegitimateUser<\/a>"],[100,1,"<a href=\"Service\/CardSchemeEncoder.php.html#25\">App\\Service\\CardSchemeEncoder::encode<\/a>"],[100,1,"<a href=\"Service\/CardSchemeEncoder.php.html#39\">App\\Service\\CardSchemeEncoder::decode<\/a>"],[80,2,"<a href=\"Service\/FrontMemberService.php.html#29\">App\\Service\\FrontMemberService::getInfoMember<\/a>"],[100,1,"<a href=\"Service\/QRCodeEncoder.php.html#23\">App\\Service\\QRCodeEncoder::encodeQRCode<\/a>"],[100,1,"<a href=\"Service\/Twig\/AppExtension.php.html#24\">App\\Service\\Twig\\AppExtension::__construct<\/a>"],[100,1,"<a href=\"Service\/Twig\/AppExtension.php.html#37\">App\\Service\\Twig\\AppExtension::getFilters<\/a>"],[0,1,"<a href=\"Service\/Twig\/AppExtension.php.html#40\">App\\Service\\Twig\\AppExtension::anonymousFunction:40#161<\/a>"],[0,1,"<a href=\"Service\/Twig\/AppExtension.php.html#49\">App\\Service\\Twig\\AppExtension::anonymousFunction:49#209<\/a>"],[60,2,"<a href=\"Service\/YamlStatsProvider.php.html#19\">App\\Service\\YamlStatsProvider::setStats<\/a>"],[25,2,"<a href=\"Service\/YamlStatsProvider.php.html#31\">App\\Service\\YamlStatsProvider::getStats<\/a>"],[0,1,"<a href=\"Controller\/Front\/HelperTrait.php.html#15\">HelperTrait::slugify<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

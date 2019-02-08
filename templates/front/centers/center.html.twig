@@ -1,0 +1,75 @@
+{% extends 'layout_front.html.twig' %}
+
+{# inherits from the main front template - all pages in this dir must inherit from this because of the variable below#}
+{% set active = 'center' %}
+
+
+{% block description %}Votre club de pointe pour un laser game en Bourgogne. Shinigami vous ouvre ses portes, avec des bonus, des récompenses et des jeux.{% endblock %}
+
+{% block title %}
+    Shinigami Laser Game - Votre club
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-8">
+            <h3 class="center_titre">{{ center_active.name }}</h3>
+            <p>{{ center_active.address }} - {{ center_active.zipCode }} {{ center_active.city }}<br>
+                Email : <a href="mailto:{{ center_active.email }}">{{ center_active.email }}</a><br>
+                Tél : {{ center_active.phone_format }}
+            </p>
+
+            <p>&nbsp;</p>
+
+            <h4>Horaires</h4>
+            <div>
+                <table class="table table-hover" style="width:70%; margin-right:30%; font-weight: normal;">
+                    <tbody style="border-top: none !important;">
+                    <tr>
+                        <th scope="col">Lundi</th><td>15h - 22h</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Mardi</th><td>15h - 22h</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Mercredi</th><td>13h - 23h</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Jeudi</th><td>15h - 23h</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Vendredi</th><td>15h - 00h</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Samedi</th><td>10h - 00h</td>
+                    </tr>
+                    <tr>
+                        <th scope="col">Dimanche</th><td>10h - 23h</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+                <p><span style="font-size: 85%;background: #0059b3; border-radius: 0.1rem;box-shadow: #002752 1px 1px 3px">
+                Réservations possibles en dehors de ces horaires, avec un minimum de joueurs requis&nbsp;
+                </span></p>
+            </div>
+
+        </div>
+        <div class="col-md-4 img_center_list">
+            <img alt="{{ center_active.name }}"
+                 src="{{ asset('images/centers/'~center_active.centerImage) }}" class="img-responsive">
+        </div>
+
+    </div>
+    <br><br>
+
+
+
+
+
+{% endblock %}
+
+

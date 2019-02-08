@@ -1,0 +1,167 @@
+{% extends 'admin/center/center.html.twig' %}
+
+{% block title %}Tableau de bord{% endblock %}
+
+{% block titre_section %} Tableau de bord {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="cader_dashboard bg-c-yellow min_h_160">
+                <div class="row">
+                    <div class="col-md-4">
+                        <i class="fa fa-crosshairs" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-8 text-right">
+                        <span>XXX</span>
+                    </div>
+                </div>
+                <p>Parties disputées</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="cader_dashboard bg-c-lite-green min_h_160">
+                <div class="row">
+                    <div class="col-md-4">
+                        <i class="fa fa-line-chart" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-8 text-right">
+                        <span>XX %</span>
+                    </div>
+                </div>
+                <p>de CA, 6 derniers mois</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="cader_dashboard bg-c-pink min_h_160">
+                <div class="row">
+                    <div class="col-md-4">
+                        <i class="fa fa-male" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-8 text-right">
+                        <span>{{ staffTotal }}</span>
+                    </div>
+                </div>
+                <p>Personnes dans le staff</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="cader_dashboard bg-c-yellow">
+                <div class="row">
+                    <div class="col-md-4">
+                        <i class="fa fa-fort-awesome" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-8 text-right">
+                        <span>{{ centersTotal }}</span>
+                    </div>
+                </div>
+                <p> Centres Laser en Bourgogne</p>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="cader_dashboard bg-c-green">
+                <div class="row">
+                    <div class="col-md-4">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-8 text-right">
+                        <span>{{ customersTotal }}</span>
+                    </div>
+                </div>
+                <p> Clients actifs</p>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="cader_dashboard bg-c-pink">
+                <div class="row">
+                    <div class="col-md-4">
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-8 text-right">
+                        <span>{{ loyaltyCardsTotal }}</span>
+                    </div>
+                </div>
+                <p>Cartes VIP</p>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="cader_dashboard bg-c-lite-green">
+                <div class="row">
+                    <div class="col-md-4">
+                        <i class="fa fa-signal" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-8 text-right">
+                        <span class="font-medium">{{ loyaltyPointsEarnedTotal }}</span>
+                    </div>
+                </div>
+                <p>Points de fidélité acquis</p>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="cader_dashboard bg-c-green">
+                <div class="row">
+                    <div class="col-md-4">
+                        <i class="fa fa-smile-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-8 text-right">
+                        <span>xxx %</span>
+                    </div>
+                </div>
+                <p> Clients satisfaits</p>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="cader_dashboard bg-c-yellow">
+                <div class="row">
+                    <div class="col-md-4">
+                        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-8 text-right">
+                        <span>xxx</span>
+                    </div>
+                </div>
+                <p>Likes</p>
+            </div>
+        </div>
+    </div>
+
+    <p><i>Stats déjà alimentées par des COUNT sur la base : centres, clients actifs, cartes valides, cumul de points de fidélité, membres du staff.<br>
+            Pour les autres (parties disputées, satisfaction, likes, C.A.), éventuellement créer qq rand() dont les résultats pourraient être conservés dans un fichier yaml (pour éviter qu'elles ne changent de façon volatile en rafraîchissant la page)</i></p>
+
+
+    <p><i>Notre dashboard</i> <i class="fa fa-dashboard" style="color: #f56a6a;"></i></p>
+
+    <p align="center" style="color: #f56a6a;"><i class="fa fa-fort-awesome" aria-hidden="true"></i> <b>{{ centersTotal }} centres laser en bourgogne</b></p>
+
+    <p align="center" style="color: #f56a6a;"><i class="fa fa-user" aria-hidden="true"></i> <b>{{ customersTotal }} clients actifs</b>
+        &nbsp;&nbsp;&nbsp; <i class="fa fa-crosshairs" aria-hidden="true"></i> <b>247 parties disputées</b>
+        &nbsp;&nbsp;&nbsp; <i class="fa fa-address-card" aria-hidden="true"></i> <b>{{ loyaltyCardsTotal }} cartes Vip</b>
+        &nbsp;&nbsp;&nbsp; <i class="fa fa-signal" aria-hidden="true"></i> <b>{{ loyaltyPointsEarnedTotal }} points de fidélité acquis</b> &nbsp;<br>
+        <i class="fa fa-smile-o" aria-hidden="true"></i> <b>83% de satisfaction</b> &nbsp;&nbsp;
+        &nbsp; <i class="fa fa-facebook-official" aria-hidden="true"></i> <b>5437 Likes</b></p>
+
+    <p align="center" style="color: #f56a6a;"><i class="fa fa-line-chart" aria-hidden="true"></i> <b>+20% de CA, 6 derniers mois</b>
+        &nbsp;&nbsp; <i class="fa fa-male" aria-hidden="true"></i> <b>{{ staffTotal }} personnes dans le staff</b></p>
+
+
+
+{% endblock %}

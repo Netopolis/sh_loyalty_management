@@ -1,0 +1,35 @@
+CHANGELOG
+
+22/12/2018
+- Corrigé plusieurs Bugs dans les DataFixtures et les annotations doctrine des Entities
+- En fait, la commande php bin/console doctrine:fixtures:load ne réinitialise pas les ids et se contente d'en ajouter indéfiniment (ce qui génère des erreurs au moment du chargement des fixtures, dès qu'on va chercher des clés étrangères)
+- Et la commande php bin/console doctrine:fixtures:load --purge-with-truncate (qui devrait réinitialiser les ids en commençant à 1), ne marche pas dès que des ids sont en clés étrangères ailleurs --> SQL error. C'est apparemment un bug connu.
+- LE PLUS SIMPLE, avant de charger les fixtures, est de carrément dropper et recréer la base, avec la séquence suivante (quand il y a déjà un fichier de migration)
+php bin/console doctrine:database:drop --if-exists --force
+php bin/console doctrine:database:create
+php bin/console doctrine:migrations:migrate
+php bin/console doctrine:schema:validate // on vérifie que tout est OK
+php bin/console doctrine:fixtures:load
+(j'ai mis à jour le Makefile avec la commande regendb, pour que tu puisses facilement le faire)
+Dans un terminal, et dans le répertoire du Projet (si MinGW installé et déclaré dans le path):
+make regendb
+
+- Quant à l'annotation, @ORM\SequenceGenerator, utilisée dans nos Entities Center et Customer
+* @ORM\SequenceGenerator(sequenceName="id", initialValue=101)
+* @ORM\SequenceGenerator(sequenceName="id", initialValue=100001)
+Elle n'est supportée que sous Oracle et Postgres !!!
+Pas moyen avec MySQL de mettre des ids qui commencent autrement qu'à 1 !
+- Comme contournement, j'ai créé des properties centerCode et customerCode; elles sont initialisées via les Fixtures avec $i + 100 pour CENTER, et $id + 100000 pour CUSTOMER
+
+
+
+20/12/2018
+- Refactorisé l'Entity Customer pour implémenter l'UserInterface (très utile pour construire les forms)
+- Refactorisé la longueur de certains champs email et adresse en objets / base
+voir --> https://kitefaster.com/2017/05/03/maximum-string-length-popular-database-fields/
+(quant au téléphone le + long au monde, il passe apparemment avec une longueur de 50)
+- Ajouté une relation entre Center et --> Loyalty Card (il n'y en avait pas) - mais pas sûr qu'à terme, il ne faille pas mieux la mettre entre Customer et Center (un client s'adresse à un club précis pour obtenir une carte, mais comme la carte n'existe pas encore au moment de la demande, il vaut mieux mettre une relation entre le client et le centre)
+- Ajouté un champ password à l'Entity Customer (oubli - bcrypt, string length=64, classique)
+- Ajouté un champ roles à l'Entity Customer (oubli) - et dans le constructeur, default role = ROLE_USER (utile pour gérer la sécurité)
+- Ajouté une Entity User pour pouvoir simuler rapidement l'interface d'admin - Entity très simple, email, password, nom, prenom, roles, et qui peut être relié à un centre - mais null par défaut pour rester souple ds un premier temps - default role = ROLE_STAFF
+- Tweaké le fichier config --> security.yaml, pour implémenter par défaut une sécurité bcrypt sur le password, Plus qq roles de base user (customer), staff, admin - qui nous permettront de restreindre les accès aux vues - and that's better :-)

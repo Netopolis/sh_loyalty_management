@@ -1,0 +1,29 @@
+{% extends '/admin/customer/customer.html.twig' %}
+
+{% block title %}Mettre à jour l'activité Client{% endblock %}
+
+{% block content %}
+    <h2>Editer l'Activité Client</h2>
+	
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+	
+	{% for message in app.flashes('notice') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+
+    <h5 style="color: #f56a6a;">{{ customer.firstName }} {{ customer.lastName }}{% if customer.nickname %}, alias {{ customer.nickname }}{% endif %} - membre depuis le {{ customer.registrationDate ? customer.registrationDate|date('j/n/Y') : '' }}</h5>
+
+    <p style="font-size: 90%;"><i>Merci de n'éditer que les informations suivantes, lors de passages ou de réservations. La plupart des statistiques "in game" sont calculées par notre logiciel.</i></p>
+
+    {{ include('admin/customer/_activity_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a href="{{ path('customer_show', {'id': customer.id}) }}">Retour à la fiche client</a>
+
+
+{% endblock %}

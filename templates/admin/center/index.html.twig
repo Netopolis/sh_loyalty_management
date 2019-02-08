@@ -1,0 +1,84 @@
+{% extends 'admin/center/center.html.twig' %}
+
+{% block title %}Liste des Centres{% endblock %}
+
+{% block titre_section %} Nos Centres {% endblock %}
+
+{% block content %}
+	{% for message in app.flashes('notice') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+	{% if centers|length > 0 %}
+		<div class="row">
+			<div class="col-md-6">
+				<p style="font-size: 75%; font-style: italic;"
+					<br><br>
+					Cliquez sur les en-têtes des colonnes pour trier.</p>		
+			</div>
+			<div class="col-md-1">
+				&nbsp;
+			</div>
+			<div class="col-md-5 text-right">
+				{% if is_granted('ROLE_ADMIN') %}
+					<a href="{{ path('center_new') }}" class="btn btn-primary">Confirmer l'ouverture d'un nouveau centre</a>
+				{% else %}
+					&nbsp;
+				{% endif %}	
+			</div>
+		</div>
+		<table class="table" id="admin_table">
+			<thead>
+				<tr>
+					<th data-sort="int">Code Centre</th>
+					<th data-sort="string">Nom</th>
+					<th data-sort="string">Adresse</th>
+					<th data-sort="int">Code Postal</th>
+					<th data-sort="string">Ville</th>
+					<th data-sort="string">Pays</th>
+					<th>Public</th>
+					<th colspan="2">&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for center in centers %}
+				<tr>
+					<td>{{ center.centerCode }}</td>
+					<td><a href="{{ path('center_show', {'id': center.id}) }}" class="tlink">{{ center.name }}</a></td>
+					<td>{{ center.address }}</td>
+					<td>{{ center.zipCode }}</td>
+					<td>{{ center.city }}</td>
+					<td>{{ center.country }}</td>
+					<td><div class="c_status c_published_{{ center.published }}"> </div></td>
+					<td align="center">
+						<a href="{{ path('center_show', {'id': center.id}) }}" class="btn btn_action_table">Voir</a>
+					</td>
+					<td align="center">
+						<a href="{{ path('center_edit', {'id': center.id}) }}" class="btn btn_action_table">Modifier</a>
+					</td>
+				</tr>
+			
+			{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+        <p>Aucun centre trouvé</p>
+		{% if is_granted('ROLE_ADMIN') %}
+			<br><br>
+			<p><a href="{{ path('center_new') }}">Confirmer l'ouverture d'un nouveau centre</a></p>
+		{% endif %}
+	{% endif %}
+	
+    {% if is_granted('ROLE_ADMIN') %}
+    	<p><a href="{{ path('center_new') }}">Confirmer l'ouverture d'un nouveau centre</a></p>
+    {% endif %}
+
+    <p>&nbsp;</p>
+{% endblock %}
+
+{% block final_javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('admin/js/stupidtable.js' )}}" type="text/javascript"></script>
+    <script src="{{ asset('admin/js/stupidtable.date.js' )}}" type="text/javascript"></script>
+{% endblock %}

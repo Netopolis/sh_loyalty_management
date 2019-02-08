@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('loyalty_card_delete', {'id': loyalty_card.id}) }}" onsubmit="return confirm('Etes vous sûr de vouloir désactiver cette carte ?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ loyalty_card.id) }}">
+    <button class="btn">Désactiver</button>
+</form>

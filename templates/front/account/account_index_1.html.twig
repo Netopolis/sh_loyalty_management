@@ -1,0 +1,103 @@
+{% extends 'front/account/account.html.twig' %}
+
+{% block description %}Votre club de pointe pour un laser game en Bourgogne. Shinigami vous ouvre ses portes, avec des bonus, des récompenses et des jeux.{% endblock %}
+
+{% block title %}
+    Shinigami Laser Game - Mon Compte
+{% endblock %}
+
+
+{% block content %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <h4>Bienvenue dans votre espace &nbsp;<span class="redneon">{{ customer.firstName }} &nbsp;{% if customer.nickName %}{{ customer.nickName }}{% endif %}</span></h4>
+    {% endif %}
+    <ul><li><a href="#">Mon Profil</a></li>
+        </ul>
+
+    <p>&nbsp;</p>
+
+    <div id="account-nav">
+    <ul class="nav nav-tabs nav-justified">
+        <li class="nav-item">
+            <a class="nav-link active show" data-toggle="tab" href="#scores">Mes Scores</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link show" data-toggle="tab" href="#points">Mes Points de fidélité</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link show" data-toggle="tab" href="#profile">Mon Profil</a>
+        </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active show slideinleft" id="scores">
+            <p>Nombre de parties jouées : <b>{{ customer_activity.gamesPlayed }}</b> &nbsp;&nbsp; Parties remportées : <b><span class="redneon">{{ customer_activity.gamesWon }}</span></b> &nbsp;&nbsp;&nbsp; dont &nbsp; Victoires solo : <b><span class="redneon">{{ customer_activity.soloVictories }}</span></b> &nbsp;&nbsp; Victoires en équipe : <b><span class="redneon">{{ customer_activity.teamVictories }}</span></b></p>
+            <p>Tournois disputés : {{ customer_activity.tournamentsPlayed }} &nbsp;&nbsp; Tournois gagnés : <b><span class="redneon">{{ customer_activity.tournamentsWon }}</span></b></p>
+            <p>Nombre max de parties consécutives gagnées : <b><span class="redneon">{{ customer_activity.maxConsecutiveGamesWon }}</span></b> &nbsp;&nbsp; Moyenne tirs manqués par jeu : <b>{{ customer_activity.averageMissesPerGame }}</b>  &nbsp;&nbsp; Moyenne tirs réussis par jeu : <b><span class="redneon">{{ customer_activity.averageHitsPerGame }}</span></b></p>
+            <p>Moyenne de points par jeu : {{ customer_activity.averagePointsPerGame }} &nbsp;&nbsp; Total des points gagnés : <b><span class="redneon">{{ customer_activity.totalPointsAllTime }}</span></b></p>
+            <p>Amis parrainés : <b><span class="redneon">{{ customer_activity.customersSponsored }}</span></b> &nbsp;&nbsp; Moyenne d'activités par mois : <b>{{ customer_activity.averageActivitiesPerMonth }}</b>  &nbsp;&nbsp; Dernière activité : <b><span class="redneon">{{ customer_activity.lastActivity ? customer_activity.lastActivity|date('j/n/Y') : '' }}</span></b></p>
+        </div>
+
+        <div class="tab-pane fade anim-focus-in-2" id="points">
+            <div class="row">
+                <div class="col-xs-10 col-md-7" style="background-color:transparent; opacity: 0.95;">
+                    <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+                </div>
+
+                <div class="col-xs-3 col-md-5" align="center" style="background-color:transparent;">
+                    <div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
+                    <div class="card-header">Avez-vous pensé à demander votre carte ?</div>
+                    <div class="card-body">
+                        <h4 class="card-title">Warning card title</h4>
+                        <p class="card-text">Nos cartes de fidélité sont gratuites, valables dans tous les clubs Shinigami. Déplacez-vous et jouez, vos avantages seront cumulés.</p>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="tab-pane fade slideinright" id="profile">
+            <div class="row">
+            <div class="col-xs-10 col-md-7" style="background-color:transparent; opacity: 0.75;">
+                <div class="card border-danger mb-3" style="max-width: 28rem;background: transparent;-webkit-box-shadow: 1px 2px 7px 0px rgba(211,54,130,1);box-shadow: 1px 2px 7px 0px rgba(211,54,130,1);">
+                    <div class="card-header" style="text-align: center; padding: -0.5rem;">Mon club</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ customer.preferredCenter.name }}</h5>
+                        <p class="card-text">{{ customer.preferredCenter.address }} - {{ customer.preferredCenter.zipCode }} {{ customer.preferredCenter.city }}<br>
+                            Email : <a href="mailto:{{ customer.preferredCenter.email }}">{{ customer.preferredCenter.email }}</a><br>
+                            Tél : {{ customer.preferredCenter.phone_format }}</p>
+                    </div>
+                </div>
+                <p style="margin-bottom: 1rem !important; border: 1px solid #D33682 !important;border-radius: 3px;max-width: 30rem;-webkit-box-shadow: 1px 2px 7px 0px rgba(211,54,130,1);box-shadow: 1px 2px 7px 0px rgba(211,54,130,1);">Mon club:<br>
+                    {{ customer.preferredCenter.name }}<br>
+                    {{ customer.preferredCenter.address }} - {{ customer.preferredCenter.zipCode }} {{ customer.preferredCenter.city }}<br>
+                    Email : <a href="mailto:{{ customer.preferredCenter.email }}">{{ customer.preferredCenter.email }}</a><br>
+                    Tél : {{ customer.preferredCenter.phone_format }}
+                </p>
+
+
+                <p>{{ customer.firstName }} {% if customer.nickname %}<span class="redneon">"{{ customer.nickname }}"</span> {% endif %}{{ customer.lastName }}<br>
+                    Membre depuis le {{ customer.registrationDate|date('j/n/Y') }}<br>
+                    Mon Email : {{ customer.email }}<br>
+                    Mon Téléphone : {{ customer.phone }}<br>
+                    Mon Adressse :<br>
+                    {{ customer.address }} - {{ customer.zipCode }} {{ customer.city }}, {{ customer.country }}<br>
+                    &nbsp;<br>
+                    Mon anniversaire : {{ customer.birthDate ? customer.birthDate|date('j/n/Y') : '' }}
+                </p>
+
+
+            </div>
+
+            <div class="col-xs-3 col-md-5" align="center" style="background-color:transparent;">
+
+            </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+
+    {% block account_content '' %}
+{% endblock %}

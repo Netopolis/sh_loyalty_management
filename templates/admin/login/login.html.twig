@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Connexion intranet{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <!-- Vendor -->
+    <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/css/main.css') }}" rel="stylesheet" />
+	<link href="{{ asset('admin/css/shinigami_admin_style.css') }}" rel="stylesheet" />
+
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="admin-login-form">
+			<h2 class="text-center">Veuillez vous identifier</h2>
+			{% if error %}
+				<div class="alert alert-danger">
+					{{ error.messageKey|trans(error.messageData, 'security') }}
+				</div>
+			{% endif %}
+			<form class="my-2" method="post" action="{{ path('admin_login') }}">
+				<div class="form-group">
+					<label for="email">Email:</label>
+					<input class="form-control" type="text" id="email" name="_email" value="{{ last_username }}"/>
+				</div>
+				<div class="form-group">
+					<label for="password">Mot de passe:</label>
+					<input class="form-control" type="password" id="password" name="_password" />
+				</div>
+		
+				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+		
+				{#
+					If you want to control the URL the user
+					is redirected to on success (more details below)
+					<input type="hidden" name="_target_path" value="/account" />
+				#}
+		<br>
+				<div class="text-center">
+					<button class="btn btn-admin-login" type="submit">Connexion</button>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

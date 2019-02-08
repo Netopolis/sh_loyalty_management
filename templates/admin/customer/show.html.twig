@@ -1,0 +1,214 @@
+{% extends '/admin/customer/customer.html.twig' %}
+
+{% block title %}Voir un Client{% endblock %}
+
+{% block content %}
+    <h2>Client</h2>
+
+<div id="customer-admin-nav" style="margin-top: -15px;">
+        <ul class="nav nav-tabs" role="tablist" data-tabs="tabs" style="float: right">
+        <li class="nav-item">
+            <a class="nav-link active show" data-toggle="tab" id="card-tab" href="#card" role="tab">Coordonnées client</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link show" data-toggle="tab" id="activity-tab" href="#activity" role="tab">Activité</a>
+        </li>
+        </ul>
+
+        <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade show active" id="card" role="tabpanel" aria-labelledby="card-tab">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ customer.id }}</td>
+                </tr>
+                <tr>
+                    <th>Centre</th>
+                    <td><a href="{{ path('center_show', {'id': center.id}) }}" class="tlink">
+                            {{ center.name }}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Code client</th>
+                    <td>{{ customer.customerCode }}</td>
+                </tr>
+                <tr>
+                    <th>Prénom</th>
+                    <td>{{ customer.firstName }}</td>
+                </tr>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ customer.lastName }}</td>
+                </tr>
+                <tr>
+                    <th>Surnom</th>
+                    <td>{{ customer.nickname }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ customer.email }}</td>
+                </tr>
+                <tr>
+                    <th>Mot de passe</th>
+                    <td>{{ customer.password }}</td>
+                </tr>
+                <tr>
+                    <th>Téléphone</th>
+                    <td>{{ customer.phone }}</td>
+                </tr>
+                <tr>
+                    <th>Adresse</th>
+                    <td>{{ customer.address }}</td>
+                </tr>
+                <tr>
+                    <th>Code postal</th>
+                    <td>{{ customer.zipCode }}</td>
+                </tr>
+                <tr>
+                    <th>Ville</th>
+                    <td>{{ customer.city }}</td>
+                </tr>
+                <tr>
+                    <th>Pays</th>
+                    <td>{{ customer.country }}</td>
+                </tr>
+                <tr>
+                    <th>Date de naissance</th>
+                    <td>{{ customer.birthDate ? customer.birthDate|date('j/n/Y') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Date d'inscription</th>
+                    <td>{{ customer.registrationDate ? customer.registrationDate|date('j/n/Y') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Actif</th>
+                    <td>{{ customer.isActive ? 'Oui' : 'Non' }}</td>
+                </tr>
+                <tr>
+                    <th>Carte de fidélité</th>
+                    <td>{% if loyalty_cards and loyalty_cards|length > 0 %}
+                            {% for card in loyalty_cards %}
+                                <a href="{{ path('loyalty_card_show', {'id': card.id}) }}" class="tlink">{{ card.cardCode }} <span style="font-size: 85%; margin-left: 24px">{{ card.isValid ? 'Active' : 'Désactivée' }}</span></a><br>
+                            {% endfor %}
+                        {% else %}
+							{% if card_request|length > 0 and card_request[0].status == 0 %}
+								   Demandée
+							{% else %}
+								<a href="{{ path('customer_new_card', {'id': customer.id}) }}">Demander une carte</a>
+							{% endif %}
+						{% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Roles</th>
+                    <td>{{ customer.roles ? customer.roles|join(', ') : '' }}</td>
+                </tr>
+                <tr>
+                </tbody>
+            </table>
+
+            <p>
+                <a href="{{ path('customer_index') }}">Retour à la liste</a>
+                &nbsp;|&nbsp; <a href="{{ path('customer_edit', {'id': customer.id}) }}">Modifier</a>
+            </p>
+
+        </div>
+
+         <div class="tab-pane fade" id="activity" role="tabpanel" aria-labelledby="activity-tab">
+             <table class="table" align="left">
+                 <tbody>
+                 <tr>
+                     <th width="45%">Client</th>
+                     <td align="left">{{ customer.firstName }} {{ customer.lastName }}</td>
+                 </tr>
+                 <tr>
+                     <th width="45%">Dernière activité</th>
+                     <td>{{ customer_activity.lastActivity ? customer_activity.lastActivity|date('j/n/Y') : '' }}</td>
+                 </tr>
+                 <tr>
+                     <th width="45%">Nombre de personnes invitées</th>
+                     <td>{{ customer_activity.friendsInvitedToGames }}</td>
+                 </tr>
+                 <tr>
+                     <th width="45%">Nombre de clients parrainnés</th>
+                     <td>{{ customer_activity.customersSponsored }}</td>
+                 </tr>
+                 <tr>
+                     <th width="45%">Dépenses moyennes par mois</th>
+                     <td>{{ customer_activity.averageSpendingPerMonth }} €</td>
+                 </tr>
+                 <tr>
+                     <th width="45%">Dépenses totales depuis inscription</th>
+                     <td>{{ customer_activity.totalSpendingAllTime }} €</td>
+                 </tr>
+                 <tr>
+                     <th width="45%">Activité moyenne par mois</th>
+                     <td>{{ customer_activity.averageActivitiesPerMonth }} parties</td>
+                 </tr>
+                 <tr>
+                     <th width="45%">Nombre de parties jouées</th>
+                     <td>{{ customer_activity.gamesPlayed }}</td>
+                 </tr>
+                 <tr>
+                     <th>Parties remportées</th>
+                     <td>{{ customer_activity.gamesWon }}</td>
+                 </tr>
+                 <tr>
+                     <th>Victoires solo</th>
+                     <td>{{ customer_activity.soloVictories }}</td>
+                 </tr>
+                 <tr>
+                     <th> Victoires en équipe</th>
+                     <td>{{ customer_activity.teamVictories }}</td>
+                 </tr>
+                 <tr>
+                     <th>Tournois disputés</th>
+                     <td>{{ customer_activity.tournamentsPlayed }}</td>
+                 </tr>
+                 <tr>
+                     <th>Tournois gagnés</th>
+                     <td>{{ customer_activity.tournamentsWon }}</td>
+                 </tr>
+                 <tr>
+                     <th>Nombre max de parties consécutives gagnées</th>
+                     <td>{{ customer_activity.maxConsecutiveGamesWon }}</td>
+                 </tr>
+                 <tr>
+                     <th>Moyenne tirs manqués par jeu</th>
+                     <td>{{ customer_activity.averageMissesPerGame }}</td>
+                 </tr>
+                 <tr>
+                     <th>Moyenne tirs réussis par jeu</th>
+                     <td>{{ customer_activity.averageHitsPerGame }}</td>
+                 </tr>
+                 <tr>
+                     <th>Moyenne de points collectés par jeu</th>
+                     <td>{{ customer_activity.averagePointsPerGame }}</td>
+                 </tr>
+                 <tr>
+                     <th>Cumul de points gagnés</th>
+                     <td>{{ customer_activity.totalPointsAllTime }}</td>
+                 </tr>
+                 <tr>
+                     <th>Actions</th>
+                     <td><a href="{{ path('customer_activity_edit', {'id': customer_activity.id}) }}">Mettre à jour l'activité</a></td>
+                 </tr>
+                 </tbody>
+             </table>
+
+             <p>
+                 <a href="{{ path('customer_index') }}">Retour à la liste</a>
+                 &nbsp;|&nbsp; <a href="{{ path('customer_activity_edit', {'id': customer_activity.id}) }}">Mettre à jour l'activité</a>
+             </p>
+
+         </div>
+
+        </div>
+</div>
+
+
+
+    <p>{{ include('admin/customer/_delete_form.html.twig') }}</p>
+
+{% endblock %}

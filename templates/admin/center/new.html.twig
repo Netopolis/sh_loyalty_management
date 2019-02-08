@@ -1,0 +1,40 @@
+{% extends 'admin/center/center.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('admin/css/bootstrap-toggle.min.css') }}" />
+	<link rel="stylesheet" href="{{ asset('admin/css/dropify.css') }}"  />
+    {{ parent() }}   
+{% endblock %}
+
+{% block title %}Ouverture{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-6">
+			<h2>Ouverture d'un nouveau centre</h2>
+		</div>
+		<div class="col-md-6 text-right">
+			<a href="{{ path('center_index') }}" class="btn btn-primary"><i class="fa fa-list"></i> &nbsp; Retour à la liste des centres</a>
+		</div>
+	</div>     
+
+    {{ include('admin/center/_form.html.twig') }}
+
+    <!-- <a href="{{ path('center_index') }}">Retour à la liste</a> -->
+{% endblock %}
+
+
+{% block final_javascripts %}
+    <script src="{{ asset('admin/js/dropify.min.js') }}"></script>
+    <script src="{{ asset('admin/js/bootstrap-toggle.min.js') }}"></script>
+    <script>
+        $('.dropify').dropify({
+            messages: {
+                default: 'Glissez-d&eacute;posez un fichier ici ou cliquez',
+                replace: 'Glissez-d&eacute;posez un fichier ou cliquez pour remplacer',
+                remove:  'Supprimer',
+                error:   'D&eacute;sol&eacute;, le fichier est trop volumineux'
+            }
+        });
+    </script>
+{% endblock %}

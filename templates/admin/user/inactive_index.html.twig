@@ -1,0 +1,58 @@
+{% extends 'admin/user/user.html.twig' %}
+
+{% block title %}Staff inactif{% endblock %}
+
+{% block titre_section %} Membres du Staff inactifs {% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-6"></div>
+		<div class="col-md-6"></div>
+	</div>
+    <p style="font-size: 75%; font-style: italic;">Cliquez sur les en-têtes des colonnes pour trier.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th data-sort="int">Id</th>
+                <th data-sort="string">Prénom</th>
+                <th data-sort="string">Nom</th>
+                <th data-sort="string">Actif</th>
+                <th data-sort="string">Email</th>
+                <th data-sort="string">Anciens Roles</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.isActive ? 'Oui' : 'Non' }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles ? user.roles|join(', ') : '' }}</td>
+                <td>
+                    <a href="{{ path('user_show', {'id': user.id}) }}">Voir</a>
+                    <a href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucun membre trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('user_new') }}">Ajouter un membre</a>
+    &nbsp;|&nbsp; <a href="{{ path('user_index') }}">Liste du staff</a>
+    &nbsp;|&nbsp; <a href="{{ path('user_index_by_center') }}">Vue du staff par centre</a>
+
+    <p>&nbsp;</p>
+{% endblock %}
+
+{% block final_javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('admin/js/stupidtable.js' )}}" type="text/javascript"></script>
+    <script src="{{ asset('admin/js/stupidtable.date.js' )}}" type="text/javascript"></script>
+{% endblock %}

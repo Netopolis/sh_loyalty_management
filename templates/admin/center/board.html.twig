@@ -1,0 +1,110 @@
+{% extends 'admin/center/center.html.twig' %}
+
+{% block title %}Tableau de bord{% endblock %}
+
+{% block titre_section %} Tableau de bord {% endblock %}
+
+{% block content %}
+    <div>
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="cader_grey">
+                    <h4>Carte de fidélité</h4>
+                    <h3>Demandes</h3>
+                    {% if card_request|length > 0 %}
+                        <table>
+                            <tr>
+                                <th>Date</th>
+                                <th>Nom</th>
+                                <th> </th>
+                                <th> </th>
+                            </tr>
+                            {% for request in card_request %}
+                            <tr>
+                                <td width="60">{{ request.dateOfRequest |date("d/m/Y") }}</td>
+                                <td width="200"><a href="{{ path('customer_show', {'id': request.customer.id}) }}" class="dsh_link">{{ request.customer.firstName }} {{ request.customer.lastName }}</a></td>
+                                <td width="40"><a href="{{ path("admin_card_validate", {"id":request.id }) }}" class="btn_actions">Valider</a></td>
+                                <td width="40"><a href="{{ path("admin_card_refuse", {"id":request.id }) }}" class="btn_actions">Refuser</a></td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    {% else %}
+                        Aucune nouvelle demande de carte de fidelité.
+                    {% endif %}
+
+
+                </div></div>
+            <div class="col-md-4">
+                <div class="cader_grey">
+                    <h4>Carte de fidélité</h4>
+                    <h3>En attente de livraison</h3>
+                    {% if card_disposal|length > 0 %}
+                        <table>
+                            <tr>
+                                <th>Date</th>
+                                <th>Nom</th>
+                                <th> </th>
+                            </tr>
+                            {% for disposal in card_disposal %}
+                                <tr>
+                                    <td width="60">{{ disposal.dateOfIssue |date("d/m/Y") }}</td>
+                                    <td width="200"><a href="{{ path('customer_show', {'id': disposal.customer.id}) }}" class="dsh_link">{{ disposal.customer.firstName }} {{ disposal.customer.lastName }}</a></td>
+                                    <td width="120"><a href="{{ path("admin_inform_customer_card", {"id":disposal.id }) }}" class="btn_actions">Informer le client</a></td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% else %}
+                        Aucune carte de fidelité receptionée.
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="cader_grey">
+                    <h4>Carte de fidélité</h4>
+                    <h3>En attente de retrait</h3>
+                    {% if card_supplied|length > 0 %}
+                        <table>
+                            <tr>
+                                <th>Date</th>
+                                <th>Nom</th>
+                                <th> </th>
+                            </tr>
+                            {% for supply in card_supplied %}
+                                <tr>
+                                    <td width="60">{{ supply.dateOfIssue |date("d/m/Y") }}</td>
+                                    <td width="200"><a href="{{ path('customer_show', {'id': supply.customer.id}) }}" class="dsh_link">{{ supply.customer.firstName }} {{ supply.customer.lastName }}</a></td>
+                                    <td width="120"><a href="{{ path("admin_card_withdraw", {"id":supply.id }) }}" class="btn_actions">Retirée par le client</a></td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% else %}
+                        Aucune carte de fidelité à remettre.
+                    {% endif %}
+                </div>
+            </div>
+            <!--
+            <div class="col-md-5">
+                <div class="cader_grey">
+                    <h3>Mes Raccourcis</h3>
+                    <ul>
+                        <li><a href="{{ path('center_index') }}">Liste des centres</a></li>
+                        <li><a href="{{ path('customer_index') }}">Liste des clients</a></li>
+                        <li><a href="{{ path('customer_new') }}">Ajouter un client</a></li>
+                        <li><a href="{{ path("loyalty_card_index") }}">Liste des cartes</a></li>
+                        <li><a href="{{ path("loyalty_card_new") }}">Ajouter une carte</a></li>
+                    </ul>
+                </div>
+            </div>
+            -->
+        </div>
+        <br><br>		
+		
+	{% include 'admin/components/_board_stats.html.twig' %}
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'front/game/game.html.twig' %}
+
+{% block description %}Votre club de pointe pour un laser game en Bourgogne. Shinigami vous ouvre ses portes, avec des bonus, des récompenses et des jeux.{% endblock %}
+
+{% block title %}
+    Shinigami Laser game - regles de jeu
+{% endblock %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8">
+<h2>Les règles de jeu</h2>
+        <p><i class="fa fa-check-square" style="font-size: 108%; color: #CB4B16;"></i>&nbsp;&nbsp; Lorsque vous êtes touché, vous <a href="{{ path('game_points') }}">perdez des points</a> et vous êtes désactivé pendant 5 secondes : vous ne pouvez plus tirer ni être atteint.</p>
+        <p><i class="fa fa-check-square" style="font-size: 108%; color: #CB4B16;"></i>&nbsp;&nbsp; Une session de laser game dure 20 minutes. Plusieurs scenarii (modes de jeu), accessoires et obstacles sont à votre disposition.</p>
+        <p><i class="fa fa-check-square" style="font-size: 108%; color: #CB4B16;"></i>&nbsp;&nbsp; Jeu en solo ou en équipe. Chaque joueur participe soit à son propre score (en mode SOLO) soit au score de son équipe.</p>
+        <p><i class="fa fa-check-square" style="font-size: 108%; color: #CB4B16;"></i>&nbsp;&nbsp; Composez vos équipes comme vous le souhaitez, entre collègues, amis ou connaissances.</p>
+        <p><i class="fa fa-check-square" style="font-size: 108%; color: #CB4B16;"></i>&nbsp;&nbsp; A la fin de la partie, vous recevez votre score, calculé automatiquement par le logiciel embarqué dans votre plastron.</p>
+
+        <p style="margin-top: 10px"><i class="fa fa-check-square" style="font-size: 108%; color: #CB4B16;"></i>&nbsp;&nbsp; <span style="color: #CB4B16;">Réservations</span> au plus tôt, et jusqu'à 20 minutes avant le début de la partie, si places disponibles.</p>
+
+    </div>
+
+    <div class="col-md-4">
+        <img src="{{ asset('images/laser17.jpg') }}" class="img-responsive" width="350">
+    </div>
+</div>
+
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+            <div class="d-flex w-100 justify-content-between">
+            </div>
+            <p class="mb-1"><i class="fa fa-exclamation-circle redneon"></i>&nbsp;&nbsp; N'oubliez pas d'arriver un quart d'heure avant votre réservation, sinon elle est perdue !</p>
+            <p class="mb-1"><i class="fa fa-crosshairs redneon"></i>&nbsp;&nbsp; Chaque partie est précédée d'un briefing et du temps d'habillage.</p>
+            <small>&nbsp;</small>
+        </a>
+    </div>
+
+    <p>&nbsp;</p>
+{% endblock %}

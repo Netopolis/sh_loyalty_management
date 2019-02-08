@@ -1,0 +1,104 @@
+{% extends 'admin/center/center.html.twig' %}
+
+{% block title %}Voir un centre{% endblock %}
+
+{% block titre_section %} Voir le centre '{{ center.name }}' {% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-8">
+			    <table class="table">
+					<tbody>
+						<tr>
+							<th>Id</th>
+							<td>{{ center.id }}</td>
+						</tr>
+						<tr>
+							<th>Code Centre</th>
+							<td>{{ center.centerCode }}</td>
+						</tr>
+						<tr>
+							<th>Contact</th>
+							<td>Tél {{ center.phone }} &nbsp;&nbsp;|&nbsp;&nbsp; {{ center.email }}</td>
+						</tr>
+						<tr>
+							<th>Adresse</th>
+							<td>{{ center.address }}</td>
+						</tr>
+						<tr>
+							<th>Code Postal</th>
+							<td>{{ center.zipCode }}</td>
+						</tr>
+						<tr>
+							<th>Ville</th>
+							<td>{{ center.city }}</td>
+						</tr>
+						<tr>
+							<th>Pays</th>
+							<td>{{ center.country }}</td>
+						</tr>
+					</tbody>
+				</table>		
+		</div>
+		<div class="col-md-4">
+			<img alt="{{ center.name }}" src="{{ asset('images/centers/'~center.centerImage) }}" class="embed-responsive"></div>
+	</div>
+	<br>
+
+    <span><a href="{{ path('center_index') }}">Liste des centres</a>
+	
+    {#{% if is_granted('ROLE_ADMIN') %}#}
+    &nbsp;|&nbsp; <a href="{{ path('center_edit', {'id': center.id}) }}">Modifier</a></span>
+    {#{% endif %}#}
+	
+    &nbsp;|&nbsp; <a href="{{ path('user_index_by_center') }}#{{ center.id }}">Voir le Staff</a>
+	<br><br>
+    {% if customers %}
+        <h4 class="entete_admin">Clients du club</h4>
+
+        <table class="table" style="font-size: 90%">
+            <thead>
+            <tr>
+                <th>Code client</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Surnom</th>
+                <th>Email</th>
+                <th>Téléphone</th>
+                <th>Adresse</th>
+                <th>Code postal</th>
+                <th>Ville</th>
+                <th>Date d'inscription</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for customer in customers %}
+                <tr>
+                    <td>{{ customer.customerCode }}</td>
+                    <td>{{ customer.firstName }}</td>
+                    <td>{{ customer.lastName }}</td>
+                    <td>{{ customer.nickname }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>{{ customer.address }}</td>
+                    <td>{{ customer.zipCode }}</td>
+                    <td>{{ customer.city }}</td>
+                    <td>{{ customer.registrationDate ? customer.registrationDate|date('j/n/Y') : '' }}</td>
+                    <td>
+                        <a href="{{ path('customer_show', {'id': customer.id}) }}">Voir</a>
+                        <a href="{{ path('customer_edit', {'id': customer.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+    {% else %}
+        <p align="center">Aucun client actif n'est rattaché au centre</p>
+    {% endif %}
+
+    <p align="center"><a href="{{ path('customer_new') }}">Ajouter un nouveau client</a></p>
+
+{% endblock %}

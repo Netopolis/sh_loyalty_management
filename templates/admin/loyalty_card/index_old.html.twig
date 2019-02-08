@@ -1,0 +1,41 @@
+{% extends 'admin/loyalty_card/card.html.twig' %}
+
+{% block title %}Cartes de fidélité{% endblock %}
+
+{% block content %}
+    <h2>Liste des Cartes de fidélité actives</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Code carte</th>
+                <th>QRCode</th>
+                <th>Date d'activation</th>
+                <th>Valide ?</th>
+                <th>Points de fidélité</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for loyalty_card in loyalty_cards %}
+            <tr>
+                <td>{{ loyalty_card.cardCode }}</td>
+                <td>{{ loyalty_card.QRCode }}</td>
+                <td>{{ loyalty_card.dateOfIssue ? loyalty_card.dateOfIssue|date('j/n/Y') : '' }}</td>
+                <td>{{ loyalty_card.isValid ? 'Oui' : 'Non' }}</td>
+                <td>{{ loyalty_card.loyaltyPoints }}</td>
+                <td>
+                    <a href="{{ path('loyalty_card_show', {'id': loyalty_card.id}) }}">Voir</a>
+                    <a href="{{ path('loyalty_card_edit', {'id': loyalty_card.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucune carte trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('loyalty_card_new') }}">Ajouter une carte</a>
+{% endblock %}

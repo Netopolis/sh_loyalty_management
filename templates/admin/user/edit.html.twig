@@ -1,0 +1,16 @@
+{% extends 'admin/user/user.html.twig' %}
+
+{% block title %}Modifier un Membre{% endblock %}
+
+{% block titre_section %} Modifier un Membre {% endblock %}
+
+{% block content %}
+    <h2>Modifier un Membre du Staff</h2>
+
+    {{ include('admin/user/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a href="{{ path('user_index') }}">Retour à la liste du Staff</a>
+    <p>&nbsp;</p>
+
+    {{ include('admin/user/_delete_form.html.twig') }}
+{% endblock %}

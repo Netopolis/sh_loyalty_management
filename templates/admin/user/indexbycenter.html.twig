@@ -1,0 +1,179 @@
+{% extends 'admin/user/user.html.twig' %}
+
+{% block title %}Vue par centre{% endblock %}
+
+{% block titre_section %} Liste du Staff par centre {% endblock %}
+
+{% block content %}
+	<div class="text-right">
+		<div class="form-check">        
+			<input type="checkbox" id="show_disabled_user_list" name="show_disabled_user_list" class="form-check-input" value="123-user">
+			<label class="form-check-label" for="show_disabled_user_list">
+				Afficher les utilisateurs inactifs
+			</label>
+		</div>
+	
+	</div>
+    <h4 class="entete_admin">Administrateurs</h4>
+
+    {% if admins|length > 0 %}
+        <table class="table admin_table_list admin_staff ">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th colspan="2" width="60">&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+			{% set nb_actifs_c = 0 %}
+            {% for admin in admins %}
+				{% if admin.isActive %}
+					{% set nb_actifs_c = nb_actifs_c + 1 %}
+					{% set tr_class = "ln_actif" %}
+				{% else %}
+					{% set tr_class = "ln_inactif" %}
+				{% endif %}
+				<tr class="{{ tr_class }}{% if tr_class == 'ln_actif' %} tr_table_color_{{ nb_actifs_c%2 }} {% endif %}">
+					<td>{{ admin.id }}</td>
+					<td>{{ admin.firstName }}</td>
+					<td>{{ admin.lastName }}</td>
+					<td>{{ admin.email }}</td>
+					<td>{{ admin.roles |join(',') }}</td>
+					<td>{{ admin.isActive ? 'Actif' : 'Inactif' }}</td>
+					<td>
+						<a href="{{ path('user_show', {'id': admin.id}) }}" class="btn btn_action_table">Voir</a>
+					</td>
+					<td>
+						<a href="{{ path('user_edit', {'id': admin.id}) }}" class="btn btn_action_table">Modifier</a>
+					</td>
+				</tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    {% else %}
+        <p align="center">Aucun administrateur trouvé</p>
+    {% endif %}
+	<br>
+    <p align="center"><a href="{{ path('user_index') }}" class="btn btn-primary">Retour à la liste alphabétique</a></p>
+	<br><br>
+
+    {% if centers %}
+        {% for center in centers %}
+            {% if center.published %}
+                <!-- <a href="{{ center.id }}"></a> -->
+                <h4  class="entete_admin">
+					<a href="{{ path('center_show', {'id': center.id}) }}" class="tlink" class="entete_admin">{{ center.name }}</a>
+				</h4>
+                {% if center.users|length > 0 %}
+                    <table class="table admin_table_list admin_staff">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Prénom</th>
+								<th>Nom</th>
+								<th>Email</th>
+								<th>Roles</th>
+								<th colspan="2" width="60">&nbsp;</th>
+							</tr>
+						</thead>
+						<tbody>				
+							{% set nb_actifs_c = 0 %}
+							{% for user in center.users %}
+								{% if user.isActive %}
+									{% set nb_actifs_c = nb_actifs_c + 1 %}
+									{% set tr_class = "ln_actif" %}
+								{% else %}
+									{% set tr_class = "ln_inactif" %}
+								{% endif %}
+								<tr class="{{ tr_class }}{% if tr_class == 'ln_actif' %} tr_table_color_{{ nb_actifs_c%2 }} {% endif %}">
+									<td>{{ user.id }}</td>
+									<td>{{ user.firstName }}</td>
+									<td>{{ user.lastName }}</td>
+									<td>{{ user.email }}</td>
+									<td>{{ user.roles |join(',') }}</td>
+									<td>{{ user.isActive ? 'Actif' : 'Inactif' }}</td>
+									<td>
+										<a href="{{ path('user_show', {'id': user.id}) }}" class="btn btn_action_table">Voir</a>
+									</td>
+									<td>
+										<a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn_action_table">Modifier</a>
+									</td>
+								</tr>                  
+							{% endfor %}
+						</tbody>
+                	</table>
+					<br><br>
+            	{% else %}
+                     <p align="center">Aucun membre actif affecté à ce centre</p>
+                {% endif %}
+        	{% endif %}
+        {% endfor %}
+
+    {% else %}
+        <p align="center">Aucun centre actif</p>
+    {% endif %}
+	<br>
+    <p align="center"><a href="{{ path('user_index') }}">Retour à la liste alphabétique</a>&nbsp; | &nbsp;<a href="{{ path('customer_new') }}">Ajouter un nouveau membre</a></p>
+	<br><br>
+
+{% endblock %}
+
+{% block final_javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('admin/js/stupidtable.js' )}}" type="text/javascript"></script>
+    <script src="{{ asset('admin/js/stupidtable.date.js' )}}" type="text/javascript"></script>
+	<script src="{{ asset('admin/js/jquery.cookie.js' )}}" type="text/javascript"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+
+			// confirm_actif = "non";
+			
+			if($.cookie('user_list_bycenter_sh') == 1){			
+				$("#show_disabled_user_list").prop( "checked", "checked" );
+				showAllLines();
+			}else{		
+				showActiveLines();
+			}
+			
+			$("#show_disabled_user_list").on('click', function (e) {
+		
+				isChecked = $("#show_disabled_user_list").prop( "checked" );
+				
+				if(isChecked){
+					$.cookie("user_list_bycenter_sh", 1);
+					showAllLines()
+				}else{
+					$.cookie("user_list_bycenter_sh", 4);
+					showActiveLines()
+				}		
+			});	
+			
+			$('.btn_active_confirm').click(function(event){				
+				
+				action = $(this).text();
+				res = confirm("Voulez vous " + action.toLowerCase() + " cet utilisateur ?");
+				
+				if(!res){
+					event.preventDefault();
+				}
+			});
+		
+		});
+		
+		function showAllLines(){
+			$(".admin_staff tr").show();
+		}
+		
+		function showActiveLines(){
+			$(".admin_staff tr.ln_inactif").hide();
+		}
+		
+		
+	</script>
+{% endblock %}
+

@@ -1,0 +1,15 @@
+{% extends 'admin/loyalty_card/card.html.twig' %}
+
+{% block title %}Modifier une carte{% endblock %}
+
+{% block titre_section %} Modifier une Carte de fidélité {% endblock %}
+
+{% block content %}
+
+    {{ include('admin/loyalty_card/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+
+    <a href="{{ path('loyalty_card_index') }}">Retour à la liste</a>
+    <p>&nbsp;</p>
+
+    {# { -- { -- include -- ('admin/loyalty_card/_delete_form.html.twig') } #}
+{% endblock %}

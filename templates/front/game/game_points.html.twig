@@ -1,0 +1,36 @@
+{% extends 'front/game/game.html.twig' %}
+
+{% block description %}Votre club de pointe pour un laser game en Bourgogne. Shinigami vous ouvre ses portes, avec des bonus, des récompenses et des jeux.{% endblock %}
+
+{% block title %}
+    Shinigami Laser game - les points
+{% endblock %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8">
+<h2>Le comptage des points</h2>
+    <p>En mode raptor, qui est le plus courant:<br>
+        100 points en touchant les cibles avant et arrière du plastron<br>
+        200 points en touchant les épaules<br>
+        300 points en touchant le pistolet<br>
+        -50 points lorsque vous êtes touché<br>
+        -50 points lorsqu'un de vos alliés est touché<br>
+        -300 points si vous vous suicidez ;-)<br>
+        &nbsp;<br>
+        Plusieurs modes de jeu viennent altérer le comptage des points : Capture du drapeau, Roi de la colline, Capture des bases, l'élu, Vampires, Arène, et Mode furtif.<br>
+        En désactivant les bases adverses, en capturant le drapeau, en touchant l'élu vous gagnerez aussi des points.
+        Renseignez-vous <a href="{{ path('shinigamilaserclubs') }}">auprès de votre club</a>.</p>
+
+    <p>&nbsp;</p>
+    </div>
+
+    <div class="col-md-4">
+        <img src="{{ asset('images/laser16.jpg') }}" class="img-responsive" width="350">
+    </div>
+</div>
+    
+
+{% endblock %}

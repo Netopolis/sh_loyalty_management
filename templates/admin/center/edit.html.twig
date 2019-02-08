@@ -1,0 +1,43 @@
+{% extends 'admin/center/center.html.twig' %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('admin/css/bootstrap-toggle.min.css') }}" />
+	<link rel="stylesheet" href="{{ asset('admin/css/dropify.css') }}"  />
+    {{ parent() }}    
+{% endblock %}
+
+{% block title %}Modifier{% endblock %}
+
+{% block titre_section %} Modifier {{ center.name }} {% endblock %}
+
+{% block content %}
+	{% for message in app.flashes('notice') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+	<br>
+    {{ include('admin/center/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <p><a href="{{ path('center_index') }}">Retour à la liste</a></p>
+    <p>&nbsp;</p>
+
+    {% if is_granted('ROLE_ADMIN') %}
+    	{{ include('admin/center/_delete_form.html.twig') }}
+    {% endif %}
+{% endblock %}
+
+{% block final_javascripts %}
+    <script src="{{ asset('admin/js/dropify.min.js') }}"></script>
+    <script src="{{ asset('admin/js/bootstrap-toggle.min.js') }}"></script>
+    <script>
+        $('.dropify').dropify({
+            messages: {
+                default: 'Glissez-d&eacute;posez un fichier ici ou cliquez',
+                replace: 'Glissez-d&eacute;posez un fichier ou cliquez pour remplacer',
+                remove:  'Supprimer',
+                error:   'D&eacute;sol&eacute;, le fichier est trop volumineux'
+            }
+        });
+    </script>
+{% endblock %}

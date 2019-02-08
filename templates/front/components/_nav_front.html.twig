@@ -1,0 +1,77 @@
+<div class="bs-docs-section clearfix">
+    <div class="bs-component">
+<nav class="navbar navbar-expand-lg navbar-ex navbar-dark bg-dark anim-focus-in">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item {% if active == "home" %} active {% endif %}">
+                <a class="nav-link" href="{{ path('home') }}">Accueil <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown-container">
+                <a class="nav-link dropdown-toggle{% if active == "game" %} active {% endif %}" data-toggle="dropdown" href="#">Le jeu <span class="caret"></span></a>
+                <div class="dropdown-menu" aria-labelledby="themes">
+                    <a class="dropdown-item" href="{{ path('game') }}">Les Règles</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('game_points') }}">Les points</a>
+                    <a class="dropdown-item" href="{{ path('home') }}">Les modes</a>
+                </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown-container">
+                    <a class="nav-link dropdown-toggle{% if active == "center" %} active {% endif %}" data-toggle="dropdown" href="#">Les Clubs <span class="caret"></span></a>
+                    <div class="dropdown-menu" aria-labelledby="themes">
+                        <a class="dropdown-item" href="{{ path('shinigamilaserclubs') }}">Les Clubs Shinigami Laser</a>
+                        {% for center in centers %}
+                            <a class="dropdown-item" href="{{ path('centers_infos', {
+                                'slug': center.slug,
+                                'id': center.id
+                            }) }}"> {{ center.name }} </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </li>
+			{% if is_granted('ROLE_STAFF') == false and is_granted('ROLE_ADMIN') == false %}
+				<li class="nav-item">
+					{# member_menu #}  
+					{% if is_granted('IS_AUTHENTICATED_FULLY') %}				
+						{% if member_menu is defined %}
+						   {% set menu_drop_active = member_menu %}
+						{% else %}
+							{% set menu_drop_active = "" %}
+						{% endif %}					 
+						<div class="dropdown-container">
+							<a class="nav-link dropdown-toggle{% if active == "account" %} active{% endif %}" data-toggle="dropdown" href="#">Mon Compte <span class="caret"></span></a>
+							<div class="dropdown-menu" aria-labelledby="themes">
+								<a class="dropdown-item {% if menu_drop_active == "scores" %}active{% endif %}" href="{{ path('account_member', {'part': 'scores'}) }}">Mes scores</a>
+								<a class="dropdown-item {% if menu_drop_active == "avantages" %}active{% endif %}" href="{{ path('account_member', {'part': 'avantages'}) }}">Mes avantages</a>
+								<a class="dropdown-item {% if menu_drop_active == "profile" %}active{% endif %}" href="{{ path('account_member', {'part': 'profile'}) }}">Mon profil</a>
+							</div>
+						</div>                    
+					{% else %}
+						<a class="nav-link" href="{{ path("login") }}">Login</a>
+					{% endif %}
+				</li>
+				{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+					<li class="nav-item">
+							<a class="nav-link" href="{{ path("logout") }}">Déconnexion</a>
+					</li>
+				{% endif %}
+			{% else %}
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path("admin_index") }}">Admin</a>
+				</li>
+			{% endif %}
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" placeholder="Recherche" type="text">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit"><i class="fa fa-search" style="content: '\f002';-webkit-font-smoothing: antialiased;font-size: 1.2em;"></i></button>
+        </form>
+    </div>
+</nav>
+    </div>
+</div>

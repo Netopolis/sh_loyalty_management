@@ -1,0 +1,17 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+	{{ form_start(form) }}
+        {{ form_errors(form) }}
+        <br>
+        {{ form_row(form.nickname) }}
+        <br>
+        {{ form_row(form.imageProfile) }}
+		        <br>
+        {{ form_row(form.phone) }}
+        <br>
+        {{ form_row(form.preferredCenter) }}
+        <br>
+        {{ form_row(form.submit, { 'label': 'Enregistrer' }) }}
+        {{ form_end(form) }}
+    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

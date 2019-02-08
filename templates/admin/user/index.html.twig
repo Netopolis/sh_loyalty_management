@@ -1,0 +1,140 @@
+{% extends 'admin/user/user.html.twig' %}
+
+{% block title %}Liste du Staff{% endblock %}
+
+{% block titre_section %} Liste du Staff {% endblock %}
+
+{% block content %}
+	{% for message in app.flashes('notice') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+	{% if users|length > 0 %}		
+		
+		<div class="row">
+			<div class="col-md-5">
+				<p style="font-size: 75%; font-style: italic;"
+					<br><br>
+					Cliquez sur les en-têtes des colonnes pour trier.</p>		
+			</div>
+			<div class="col-md-4">
+				<div class="form-check">        
+					<input type="checkbox" id="show_disabled_user" name="show_disabled_user" class="form-check-input" value="123-user">
+					<label class="form-check-label" for="show_disabled_user">
+						Afficher les utilisateurs inactifs
+					</label>
+				</div>
+			</div>
+			<div class="col-md-3 text-right">
+				<a href="{{ path('user_new') }}" class="btn btn-primary">Ajouter un utilisateur</a>
+
+			</div>
+		</div>
+		<table class="table" id="admin_table">
+			<thead>
+				<tr>
+					<th data-sort="int">Id</th>
+					<th data-sort="string">Prénom</th>
+					<th data-sort="string">Nom</th>
+					<th data-sort="string">Email</th>
+					<th data-sort="string">Centre</th>
+					<th data-sort="string">Roles</th>
+					<th width="160">&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% set nb_actifs_c = 0 %}
+			{% for user in users %}
+				{% if user.isActive %}
+					{% set nb_actifs_c = nb_actifs_c + 1 %}
+					{% set tr_class = "ln_actif" %}
+				{% else %}
+					{% set tr_class = "ln_inactif" %}
+				{% endif %}
+				<tr class="{{ tr_class }}{% if tr_class == 'ln_actif' %} tr_table_color_{{ nb_actifs_c%2 }} {% endif %}">
+					<td>{{ user.id }}</td>
+					<td>{{ user.firstName }}</td>
+					<td>{{ user.lastName }}</td>
+					<td>{{ user.email }}</td>
+					<td>{% if user.center %} {{ user.center }} {% endif %}</td>
+					<td>{{ user.roles ? user.roles|join(', ') : '' }}</td>
+					<td>
+						<a href="{{ path('user_show', {'id': user.id}) }}" class="btn btn_action_table">Voir</a>
+						<a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn_action_table">Modifier</a>
+						{% if user.isActive %}
+							<a href="{{ path('user_disable', {'id': user.id}) }}" class="btn btn_action_table btn_active_confirm">Désactiver</a>
+						{% else %}
+							<a href="{{ path('user_enable', {'id': user.id}) }}" class="btn btn_action_table btn_active_confirm">Activer</a>
+						{% endif %}	
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<p>Aucun membre trouvé<br><br>
+			<a href="{{ path('user_new') }}" class="btn btn-primary">Ajouter un membre</a>
+		</p>
+	{% endif %}
+
+    <a href="{{ path('user_new') }}">Ajouter un membre</a>
+    &nbsp;|&nbsp; <a href="{{ path('user_index_by_center') }}">Vue du staff par centre</a>
+    &nbsp;|&nbsp; <a href="{{ path('user_inactive_index') }}">Membres inactifs</a>
+
+    <p>&nbsp;</p>
+{% endblock %}
+
+{% block final_javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('admin/js/stupidtable.js' )}}" type="text/javascript"></script>
+    <script src="{{ asset('admin/js/stupidtable.date.js' )}}" type="text/javascript"></script>
+	<script src="{{ asset('admin/js/jquery.cookie.js' )}}" type="text/javascript"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+
+			// confirm_actif = "non";
+			
+			if($.cookie('user_list_sh') == 1){			
+				$("#show_disabled_user").prop( "checked", "checked" );
+				showAllLines();
+			}else{		
+				showActiveLines();
+			}
+			
+			$("#show_disabled_user").on('click', function (e) {
+		
+				isChecked = $("#show_disabled_user").prop( "checked" );
+				
+				if(isChecked){
+					$.cookie("user_list_sh", 1);
+					showAllLines()
+				}else{
+					$.cookie("user_list_sh", 4);
+					showActiveLines()
+				}		
+			});	
+			
+			$('.btn_active_confirm').click(function(event){				
+				
+				action = $(this).text();
+				res = confirm("Voulez vous " + action.toLowerCase() + " cet utilisateur ?");
+				
+				if(!res){
+					event.preventDefault();
+				}
+			});
+		
+		});
+		
+		function showAllLines(){
+			$("#admin_table tr").show();
+		}
+		
+		function showActiveLines(){
+			$("#admin_table tr.ln_inactif").hide();
+		}
+		
+		
+	</script>
+{% endblock %}

@@ -1,0 +1,107 @@
+security:
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
+        App\Entity\Customer:
+            algorithm: bcrypt
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        in_memory: { memory: ~ }
+        admin_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+        customer_provider:
+            entity:
+                class: App\Entity\Customer
+                property: email
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+            # https://symfony.com/doc/current/reference/configuration/security.html#reference-security-firewall-context
+
+            # special firewall for login to the admin, must allow anonymous access
+            # admin_connect:
+            # anonymous: true
+            # moved the admin_provider and form to the admin firewall, for testing
+
+        # admin firewall
+        admin_area:
+            pattern: ^/admin
+            anonymous: true # was ~ for true
+
+            provider: admin_provider
+            form_login:
+                # temporarily changed below from /secure/login to /admin/login, for now it is behind that firewall and must match the pattern
+                login_path: admin_login   # /admin/login is not a good route, already behind firewall # and it's not true that a PATH is needed here, an alias can be used
+                check_path: admin_login   # /admin/login is not a good route, already behind firewall
+                username_parameter: _email    # these fields need to be as they appear in the html form
+                password_parameter: _password    # these fields need to be as they appear in the html form
+                default_target_path: admin_index
+                # csrf_token_generator: security.csrf.token_manager # don't activate unless you know how to handle it
+
+            logout:
+                path: admin_logout
+                target: /admin
+
+            # same context as the customer firewall, so that the admins can browse it without loosing their credentials
+            context: shared_context
+
+
+            # firewall that can be browsed anonymously without login
+        main:
+            anonymous: true
+
+            # http_basic: true
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+
+            # form_login: true
+            # https://symfony.com/doc/current/security/form_login_setup.html
+
+            provider: customer_provider
+            form_login:
+                login_path: login
+                check_path: login
+                username_parameter: _email    # these fields need to be as they appear in the html form
+                password_parameter: _password    # these fields need to be as they appear in the html form
+                default_target_path: /
+
+            logout:
+                path: logout
+                target: /
+
+            # same context
+            context: shared_context
+
+
+            # firewall for customers private sections such as personal profile, account, etc
+            #customer_secured_area:
+            #pattern: ^/profile  # or /private or /account or /customer
+            #anonymous: ~
+
+            # important, must have same context name as the admin firewall, credentials carry over
+            # customers won't be able to access the admin because of the access control on ROLES, below
+            # context: shared_context
+
+            # https://symfony.com/doc/current/reference/configuration/security.html
+            # https://symfony.com/doc/current/security/access_control.html
+
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        #- { path: ^/secure/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        #- { path: ^/admin/private, roles: ROLE_ADMIN }
+        #- { path: ^/admin/*, roles: ROLE_STAFF }
+        #- { path: ^/admin/*, roles: ROLE_STAFF }
+        #- { path: ^/admin/users/*, roles: ROLE_ADMIN }
+
+
+    role_hierarchy:
+        ROLE_USER: ROLE_USER
+        ROLE_STAFF: [ROLE_STAFF]
+        ROLE_ADMIN: [ROLE_STAFF, ROLE_ADMIN]

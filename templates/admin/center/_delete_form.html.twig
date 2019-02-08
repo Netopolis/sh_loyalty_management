@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('center_delete', {'id': center.id}) }}" onsubmit="return confirm('Cette action ne doit être menée qu\'en cas de fermeture définitive. Etes-vous sur ?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ center.id) }}">
+    <button class="btn" style="padding:6px 9px;margin-top:4px;font-size:12px;line-height:1.2;">Fermer le centre</button>
+</form>

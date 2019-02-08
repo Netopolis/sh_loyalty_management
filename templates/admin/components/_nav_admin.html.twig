@@ -1,0 +1,47 @@
+<!-- Menu -->
+<nav id="menu">
+    <header class="major">
+        <h2>Shinigami Laser - Admin</h2>
+    </header>
+    <ul>
+        <li>
+            <span class="opener {% if active == "board" %} active {% endif %}">Tableau de bord</span>
+            <ul>
+                <li><a href="{{ path('admin_index') }}">Activité</a></li>
+                <li><a href="{{ path('center_index') }}">Liste des centres</a></li>
+                {#<li><a href="{{ path("admin_index") }}">Réservations</a></li>#}
+                <li><a href="{{ path('admin_loyalty_manager') }}">Programmes de fidélité</a></li>
+            </ul>
+        </li>
+        <li>
+            <span class="opener {% if active == "customers" %} active {% endif %}">Clients</span>
+            <ul>
+                <li><a href="{{ path('customer_index') }}">Liste Clients</a></li>
+                <li><a href="{{ path('customer_new') }}">Ajouter un client</a></li>
+                <li><a href="{{ path("loyalty_card_new") }}">Ajouter une carte</a></li>
+            </ul>
+        </li>
+        <li>
+            <span class="opener {% if active == "cards" %} active {% endif %}">Cartes de fidelité</span>
+            <ul>
+                <li><a href="{{ path("loyalty_card_index") }}">Liste des Cartes</a></li>
+                <li><a href="{{ path("loyalty_card_new") }}">Ajouter une carte</a></li>
+            </ul>
+        </li>
+		{% if userData.isAdmin == "oui" %}
+			<li>
+				<span class="opener {% if active == "staff" %} active {% endif %}">Staff</span>
+				<ul>
+					<li><a href="{{ path('user_index') }}">Liste du staff</a></li>
+					<li><a href="{{ path('user_new') }}">Ajouter un membre</a></li>
+				</ul>
+			</li>
+		{% endif %}
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <li><a href="{{ path("admin_logout") }}">Déconnexion</a></li>
+        {% else %}
+        <li><a href="{{ path("admin_login") }}">Connexion</a></li>
+        {% endif %}
+
+    </ul>
+</nav>

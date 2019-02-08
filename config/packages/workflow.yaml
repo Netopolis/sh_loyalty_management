@@ -1,0 +1,31 @@
+framework:
+    workflows:
+        new_loyalty_card:
+            type: 'workflow'
+            audit_trail:
+                enabled: true
+            marking_store:
+                type: 'single_state'
+                arguments:
+                    - 'status'
+            supports:
+                - App\Entity\LoyaltyCard
+            initial_place: created
+            places:
+                - created
+                - validated
+                - supplied
+                - withdraw
+            transitions:
+                init:
+                    from: created
+                    to:   validated
+                init_admin:
+                    from: created
+                    to:   supplied
+                to_take:
+                    from: validated
+                    to:   supplied
+                to_delivered_to_customer:
+                    from: supplied
+                    to:   withdraw

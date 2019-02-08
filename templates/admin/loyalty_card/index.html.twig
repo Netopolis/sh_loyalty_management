@@ -1,0 +1,154 @@
+{% extends 'admin/loyalty_card/card.html.twig' %}
+
+{% block title %}Cartes de fidélité{% endblock %}
+
+{% block titre_section %} 
+	Liste des Cartes de fidélité
+{% endblock %}
+
+{% block content %}
+	{% for message in app.flashes('notice') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+	{% if loyalty_cards|length > 0 %}
+		<div class="row">
+			<div class="col-md-5">
+				<p style="font-size: 75%; font-style: italic;"
+					<br><br>
+					Cliquez sur les en-têtes des colonnes pour trier.</p>		
+			</div>
+			<div class="col-md-4">
+				<div class="form-check">        
+					<input type="checkbox" id="show_disabled_card" name="show_disabled_card" class="form-check-input" value="123">
+					<label class="form-check-label" for="show_disabled_card">Afficher les cartes inactives</label>
+				</div>
+			</div>
+			<div class="col-md-3 text-right">
+				<a href="{{ path('loyalty_card_new') }}" class="btn btn-primary">Ajouter une carte</a>
+				<!--
+				<span><a href="#actions"><i class="fa fa-caret-down"></i> autres actions</a></span>
+				-->		
+			</div>
+		</div>
+		
+		<table class="table" id="admin_table">
+			<thead>
+				<tr>
+					<th data-sort="int">Code carte</th>
+					<th data-sort="string">QRCode</th>
+					<th data-sort="string">Client</th>
+					<th data-sort="string">Date d'activation</th>
+					<th data-sort="string">Valide&nbsp;?</th>
+					<th data-sort="string">App activée&nbsp;?</th>
+					<th data-sort="int">Points de fidélité</th>
+					<th colspan="4">&nbsp;</th>
+	
+				</tr>
+			</thead>
+			<tbody>
+			{% set nb_actifs_c = 0 %}
+			{% for loyalty_card in loyalty_cards %}
+				{% if loyalty_card.isValid %}
+					{% set nb_actifs_c = nb_actifs_c + 1 %}
+					{% set tr_class = "ln_actif" %}
+				{% else %}
+					{% set tr_class = "ln_inactif" %}
+				{% endif %}
+				<tr class="{{ tr_class }}{% if tr_class == 'ln_actif' %} tr_table_color_{{ nb_actifs_c%2 }} {% endif %}">
+					<td>{{ loyalty_card.cardCode }}</td>
+					<td>Rappel des liens + code carte {{ loyalty_card.cardCode }}</td>
+					<td><a href="{{ path('customer_show', {'id': loyalty_card.customerId}) }}" class="tlink">{{ loyalty_card.lastName }}, {{ loyalty_card.firstName }}</a></td>
+					<td>{{ loyalty_card.dateOfIssue ? loyalty_card.dateOfIssue|date('j/n/Y') : '' }}</td>
+					<td>{{ loyalty_card.isValid ? 'Oui' : 'Non' }}</td>
+					<td>{{ loyalty_card.isPhoneAppActive ? 'Oui' : 'Non' }}</td>
+					<td>{{ loyalty_card.loyaltyPoints }}</td>
+					<td class="table_btn">
+						<a href="{{ path('loyalty_card_show', {'id': loyalty_card.id}) }}" class="btn btn_action_table">Voir</a>
+					</td>
+					<td class="table_btn">
+						<a href="{{ path('loyalty_card_edit', {'id': loyalty_card.id}) }}" class="btn btn_action_table">Modifier</a>
+					</td>
+					<td class="table_btn">
+						{% if loyalty_card.isValid %}
+							<a href="{{ path('card_disable', {'id': loyalty_card.id}) }}" class="btn btn_action_table btn_active_confirm">Désactiver</a>
+						{% else %}
+							<a href="{{ path('card_enable', {'id': loyalty_card.id}) }}" class="btn btn_action_table btn_active_confirm">Activer</a>
+						{% endif %}					
+					</td>
+					<td class="table_btn">
+						{% if(loyalty_card.status == "supplied") %}
+							<a href="{{ path('admin_card_withdraw', {'id': loyalty_card.id}) }}" class="btn btn_action_table">Récupérée<br>par le client</a>
+						{% endif %}
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<p>Aucune carte trouvée<br><br>
+			<a href="{{ path('loyalty_card_new') }}" class="btn btn-primary">Ajouter une carte</a>
+		</p>
+	{% endif %}
+
+    <a href="{{ path('loyalty_card_new') }}">Ajouter une carte</a>
+    &nbsp;|&nbsp; <a href="{{ path('loyalty_card_inactive_index') }}">Liste des cartes désactivées</a>
+    &nbsp;|&nbsp; <a href="{{ path('customer_index') }}">Liste des clients actifs</a>
+
+    <p>&nbsp;</p>
+{% endblock %}
+
+{% block final_javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('admin/js/stupidtable.js' )}}" type="text/javascript"></script>
+    <script src="{{ asset('admin/js/stupidtable.date.js' )}}" type="text/javascript"></script>
+	<script src="{{ asset('admin/js/jquery.cookie.js' )}}" type="text/javascript"></script>
+		<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+
+			// confirm_actif = "non";
+			
+			if($.cookie('card_list_sh') == 1){			
+				$("#show_disabled_card").prop( "checked", "checked" );
+				showAllLines();
+			}else{		
+				showActiveLines();
+			}
+			
+			$("#show_disabled_card").on('click', function (e) {
+		
+				isChecked = $("#show_disabled_card").prop( "checked" );
+				
+				if(isChecked){
+					$.cookie("card_list_sh", 1);
+					showAllLines()
+				}else{
+					$.cookie("card_list_sh", 4);
+					showActiveLines()
+				}		
+			});	
+			
+			$('.btn_active_confirm').click(function(event){				
+				
+				action = $(this).text();
+				res = confirm("Voulez vous " + action.toLowerCase() + " cette carte ?");
+				
+				if(!res){
+					event.preventDefault();
+				}
+			});
+		
+		});
+		
+		function showAllLines(){
+			$("#admin_table tr").show();
+		}
+		
+		function showActiveLines(){
+			$("#admin_table tr.ln_inactif").hide();
+		}
+		
+		
+	</script>
+{% endblock %}

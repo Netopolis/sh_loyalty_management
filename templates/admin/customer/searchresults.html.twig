@@ -1,0 +1,69 @@
+{% extends 'admin/customer/customer.html.twig' %}
+
+{% block title %}Résultats de recherche{% endblock %}
+
+{% block content %}
+    <h2>Résultats de recherche - Clients et cartes</h2>
+
+    <table class="table" style="font-size: 90%">
+        <thead>
+        <tr>
+            <th>Code client</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Surnom</th>
+            <th>Email</th>
+            <th>Téléphone</th>
+            <th>Ville</th>
+            <th>Carte de fidélité</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for customer in results %}
+            <tr>
+                <td>{{ customer.customerCode }}</td>
+                <td><a href="{{ path('customer_show', {'id': customer.id}) }}" class="tlink">
+                    {{ customer.firstName }}
+                    </a>
+                </td>
+                <td><a href="{{ path('customer_show', {'id': customer.id}) }}" class="tlink">
+                    {{ customer.lastName }}
+                    </a>
+                </td>
+                <td>{{ customer.nickname }}</td>
+                <td>{{ customer.email }}</td>
+                <td>{{ customer.phone }}</td>
+                <td>{{ customer.city }}</td>
+                <td>
+                    {% for card in customer.cards %}
+                        {% if card.isValid %}
+                    <a href="{{ path('loyalty_card_show', {'id': card.id}) }}" class="tlink">
+                        {{ card.cardCode }} </a>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+                <td>
+                    <a href="{{ path('customer_show', {'id': customer.id}) }}">Voir</a>
+                    <a href="{{ path('customer_edit', {'id': customer.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9" align="center">
+                    <span>Aucun résultat... :(<br>
+                    Essayez une autre orthographe ou davantage de caractères.<br>
+                    &nbsp;<br>
+                    Vous pouvez aussi saisir des chiffres, pour retrouver une carte par son code</span>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('customer_new') }}">Ajouter un client</a>
+    &nbsp;|&nbsp;
+    <a href="{{ path('customer_index') }}">Liste des clients actifs</a>
+    &nbsp;|&nbsp;
+    <a href="{{ path('loyalty_card_index') }}">Liste des cartes actives</a>
+{% endblock %}

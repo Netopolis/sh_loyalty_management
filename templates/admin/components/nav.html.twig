@@ -1,0 +1,33 @@
+{# used only by the 1st version of layout_admin.html.twig #}
+<!-- Menu -->
+<nav id="menu">
+    <header class="major">
+        <h2>SatéKina Box - Admin</h2>
+    </header>
+    <ul>
+        <li><a href="{{ path("admin") }}">Tableau de bord</a></li>
+        <li>
+            <span class="opener {% if active == "produits" %} active {% endif %}">Clients</span>
+            <ul>
+                <li><a href="{{ path("admin") }}">Liste Clients</a></li>
+                <li><a href="{{ path("admin") }}">Ajouter un client</a></li>
+                <li><a href="{{ path("admin") }}">Ajouter une carte</a></li>
+            </ul>
+        </li>
+        <li>
+            <span class="opener {% if active == "box" %} active {% endif %}">Cartes de fidelité</span>
+            <ul>
+                <li><a href="{{ path("admin") }}">Liste des Cartes</a></li>
+                <li><a href="{{ path("admin") }}">Ajouter une carte</a></li>
+            </ul>
+        </li>
+        <li>
+            <span class="opener {% if active == "membre" %} active {% endif %}">Membres</span>
+            <ul>
+                <li><a href="{{ path("admin") }}">Ajouter un membre</a></li>
+                <li><a href="{{ path("admin") }}">Liste des membres</a></li>
+            </ul>
+        </li>
+        <li><a href="{{ path("admin") }}">Déconnection</a></li>
+    </ul>
+</nav>

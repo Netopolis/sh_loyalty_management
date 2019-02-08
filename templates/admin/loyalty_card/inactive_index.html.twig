@@ -1,0 +1,63 @@
+{% extends 'admin/loyalty_card/card.html.twig' %}
+
+{% block title %}Cartes désactivées{% endblock %}
+
+{% block titre_section %} Liste des Cartes désactivées {% endblock %}
+
+{% block content %}
+    <p style="font-size: 75%; font-style: italic;">Cliquez sur les en-têtes des colonnes pour trier.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th data-sort="int">Code carte</th>
+                <th>QRCode</th>
+                <th data-sort="string">Client</th>
+                <th data-sort="string">Date d'activation</th>
+                <th data-sort="string">Valide&nbsp;?</th>
+                <th data-sort="string">App activée ?</th>
+                <th data-sort="int">Points de fidélité</th>
+                <th colspan="2">actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for loyalty_card in loyalty_cards %}
+            <tr>
+                <td>{{ loyalty_card.cardCode }}</td>
+                <td>Rappel des liens + code carte {{ loyalty_card.cardCode }}</td>
+                <td><a href="{{ path('customer_show', {'id': loyalty_card.customerId}) }}" class="tlink">{{ loyalty_card.lastName }}, {{ loyalty_card.firstName }}</a></td>
+                <td>{{ loyalty_card.dateOfIssue ? loyalty_card.dateOfIssue|date('j/n/Y') : '' }}</td>
+                <td>{{ loyalty_card.isValid ? 'Oui' : 'Non' }}</td>
+                <td>{{ loyalty_card.isPhoneAppActive ? 'Oui' : 'Non' }}</td>
+                <td>{{ loyalty_card.loyaltyPoints }}</td>
+                <td>
+                    <a href="{{ path('loyalty_card_show', {'id': loyalty_card.id}) }}">Voir</a>
+                </td>
+                <td>
+                    <a href="{{ path('loyalty_card_edit', {'id': loyalty_card.id}) }}">Modifier</a>
+                </td>
+                <td>
+                    {% if(loyalty_card.status == "supplied") %}
+                        <a href="{{ path('admin_card_withdraw', {'id': loyalty_card.id}) }}" class="font_small">Récupérée<br>par le client</a></td>
+                    {% endif %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucune carte trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <a href="{{ path('loyalty_card_new') }}">Ajouter une carte</a>
+    &nbsp;|&nbsp; <a href="{{ path('loyalty_card_index') }}">Liste des cartes actives</a>
+
+    <p>&nbsp;</p>
+{% endblock %}
+
+{% block final_javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('admin/js/stupidtable.js' )}}" type="text/javascript"></script>
+    <script src="{{ asset('admin/js/stupidtable.date.js' )}}" type="text/javascript"></script>
+{% endblock %}
