@@ -1,4 +1,4 @@
-# FRENCH 
+### FRENCH 
 *(English version below)*
 
 Environnement: Php 7.1.3, Symfony 4.2.2, MariaDB 10.1.37 (Xampp, compatible MySQL 5.6) - Vous pouvez changer facilement la base de données.
@@ -58,7 +58,7 @@ Essayez tout ce qu'il vous plaît, et envoyez-nous un mot si vous l'appréciez.
 Hugues et Cecile
 
 
-# ENGLISH
+### ENGLISH
 
 This is a proof of concept for a loyalty management system, for small to large businesses.
 
