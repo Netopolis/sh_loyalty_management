@@ -1,3 +1,2 @@
 public/* linguist-vendored=true
-templates/* linguist-language=twig
-testreports/* linguist-vendored=true
+testsreports/* linguist-vendored=true
