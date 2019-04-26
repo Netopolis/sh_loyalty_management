@@ -36,9 +36,9 @@ class AdminUserService
 			$lastName = $logged_user->getLastName();
 			
 			
-			$isAdmin = (in_array("ROLE_ADMIN", $role)) ? "oui" : "non";
+			$isAdmin = in_array("ROLE_ADMIN", $role) ? 'oui' : 'non';
 			
-			if (is_null($logged_user->getCenter())) {
+			if ($logged_user->getCenter() === null) {
 				$center = 'Admin';
 			} else {
 				$center = $logged_user->getCenter()->getName();
@@ -51,7 +51,7 @@ class AdminUserService
 				'isAdmin' => $isAdmin
 			];
 	
-			$datas = ($isAdminOrStaff) ? $userData : false ;
+			$datas = $isAdminOrStaff ? $userData : false ;
 			
 			return $datas;
 		}else{

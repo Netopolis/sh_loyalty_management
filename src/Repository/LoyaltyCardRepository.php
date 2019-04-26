@@ -41,7 +41,7 @@ class LoyaltyCardRepository extends ServiceEntityRepository
             ->innerJoin('l.customer', 'c')
             ->select('l.id', 'l.cardCode', 'l.QRCode', 'l.loyaltyPoints', 'l.dateOfIssue', 'l.isValid', 'l.isPhoneAppActive', 'l.status', 'c.firstName', 'c.lastName')
             ->addSelect('c.id AS customerId')
-            ->Where('l.isValid = 1')
+            ->where('l.isValid = 1')
             ->orderBy('l.cardCode', 'ASC')
             ->getQuery()
             ->getResult();
@@ -55,7 +55,7 @@ class LoyaltyCardRepository extends ServiceEntityRepository
             ->innerJoin('l.customer', 'c')
             ->select('l.id', 'l.cardCode', 'l.QRCode', 'l.loyaltyPoints', 'l.dateOfIssue', 'l.isValid', 'l.isPhoneAppActive', 'l.status', 'c.firstName', 'c.lastName')
             ->addSelect('c.id AS customerId')
-            ->Where('l.isValid = 0')
+            ->where('l.isValid = 0')
             ->orderBy('l.cardCode', 'ASC')
             ->getQuery()
             ->getResult();

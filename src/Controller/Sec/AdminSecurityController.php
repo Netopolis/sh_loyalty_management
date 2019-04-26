@@ -3,6 +3,8 @@
 namespace App\Controller\Sec;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -13,11 +15,13 @@ class AdminSecurityController extends AbstractController
      * Login for the admin section of the website
      * @Route("/admin/login", name="admin_login", methods={"GET","POST"})
      * @param AuthenticationUtils $authenticationUtils
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
-    public function login(AuthenticationUtils $authenticationUtils)
+    public function login(AuthenticationUtils $authenticationUtils): Response
     {
         // redirect already logged in customers who might stumble on this route
+        // Removed but should follow the same rules as below with ROLE_USER ans redirect to 'home'
+
         if($this->isGranted('ROLE_STAFF')) {
             return $this->redirectToRoute('admin_home_dispatch');
         }
@@ -37,7 +41,7 @@ class AdminSecurityController extends AbstractController
     /**
      * @Route("/admin/logout", name="admin_logout")
      * @param AuthenticationUtils $authenticationUtils
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
      */
     public function logout(AuthenticationUtils $authenticationUtils)
     {

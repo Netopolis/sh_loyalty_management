@@ -14,12 +14,12 @@ use App\Service\QRCodeEncoder;
 use App\Service\YamlStatsProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Workflow\Registry;
 use Symfony\Component\Workflow\Exception\LogicException;
-
-// use Symfony\Component\HttpFoundation\Response;
 
 class AdminController extends AbstractController
 {
@@ -28,9 +28,9 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin", name="admin_home_dispatch", methods={"GET","POST"})
      * @param AdminUserService $adminService
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
-    public function indexAdmin(AdminUserService $adminService)
+    public function indexAdmin(AdminUserService $adminService): ?Response
     {
 
 		$userData = $adminService->getLegitimateUser($this->getUser());
@@ -46,9 +46,9 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/index_old", name="admin_index_old", methods={"GET","POST"})
      * @param AdminUserService $adminService
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
-    public function index(AdminUserService $adminService)
+    public function index(AdminUserService $adminService): Response
     {
         /** redirect to the login route, unless logged in and at least ROLE_STAFF
          * If Ok, get user details
@@ -65,9 +65,9 @@ class AdminController extends AbstractController
 
     /**
      * Search bar display in left menu
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
-    public function searchBar()
+    public function searchBar(): Response
     {
         $form = $this->createFormBuilder(null) // might as well pass null, as this is not an EntityType
             ->add("search", SearchType::class, [
@@ -91,11 +91,11 @@ class AdminController extends AbstractController
      * @param CustomerRepository $repository
      * @param Request $request
      * @param AdminUserService $adminService
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function AdminSearchresults(	CustomerRepository $repository, 
 										Request $request, 
-										AdminUserService $adminService)
+										AdminUserService $adminService): Response
     {
         /** redirect to the login route, unless logged in and at least ROLE_STAFF
          
@@ -125,11 +125,11 @@ class AdminController extends AbstractController
      * @param CenterRepository $repository
      * @param AdminUserService $adminService
      * @param YamlStatsProvider $yamlStatsProvider
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function dashBoard(	CenterRepository $repository, 
 								AdminUserService $adminService, 
-								YamlStatsProvider $yamlStatsProvider) {
+								YamlStatsProvider $yamlStatsProvider): Response {
 
         /** redirect to the login route, unless logged in and at least ROLE_STAFF
          * If ok, get user details
@@ -210,9 +210,9 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/loyalty/manager", name="admin_loyalty_manager", methods={"GET","POST"})
      * @param AdminUserService $adminService
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
-    public function loyaltyManager(AdminUserService $adminService) {
+    public function loyaltyManager(AdminUserService $adminService): Response {
         // several things to design and implement here
 
         /** redirect to the login route, unless logged in and at least ROLE_STAFF
@@ -232,7 +232,7 @@ class AdminController extends AbstractController
      * @param LoyaltyCardRequest $loyaltyCardRequest
      * @param AdminUserService $adminService
      * @param Registry $workflows
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
      */
     public function ValidateCard(LoyaltyCardRequest $loyaltyCardRequest, 
 								AdminUserService $adminService,
@@ -288,7 +288,7 @@ class AdminController extends AbstractController
      * @Route("/admin/cardrefuse/{id}", name="admin_card_refuse")
      * @param LoyaltyCardRequest $loyaltyCardRequest
      * @param AdminUserService $adminService
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
      */
     public function RefuseCard(LoyaltyCardRequest $loyaltyCardRequest, AdminUserService $adminService) {
 
@@ -317,7 +317,7 @@ class AdminController extends AbstractController
      * @param LoyaltyCard $loyaltyCard
      * @param AdminUserService $adminService
      * @param Registry $workflows
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
      */
     public function InformCustomerCard(LoyaltyCard $loyaltyCard, 
 										AdminUserService $adminService,
@@ -357,7 +357,7 @@ class AdminController extends AbstractController
      * @param LoyaltyCard $loyaltyCard
      * @param AdminUserService $adminService
      * @param Registry $workflows
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
      */
     public function CustomerCardWithDraw(	LoyaltyCard $loyaltyCard, 
 											AdminUserService $adminService,

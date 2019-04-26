@@ -123,7 +123,7 @@ class CustomerRepository extends ServiceEntityRepository
         if ($term) {
             $queryBuilder
                 //->andWhere('c.lastName LIKE :term OR c.firstName LIKE :term OR l.cardCode LIKE :term')
-                ->Where('c.lastName LIKE :term OR c.firstName LIKE :term')
+                ->where('c.lastName LIKE :term OR c.firstName LIKE :term')
                 ->orWhere('l.cardCode LIKE :term')
                 ->setParameter('term', '%' . $term . '%');
         }
