@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ### FRENCH
+=======
+### FRENCH 
+>>>>>>> 97125031614f00008cb31da03dd6a3d36c2f047e
 *(English version below)*
 
 Environnement: Php 7.1.3, Symfony 4.2.2, MariaDB 10.1.37 (Xampp, compatible MySQL 5.6) - Vous pouvez changer facilement la base de données.
@@ -110,4 +114,9 @@ One last word : this application has a lot to it, so make sure you try several t
 
 Try everything in the app, and drop us a word if you like it.
 
+<<<<<<< HEAD
 Hugues and Cecile
+=======
+Hugues and Cecile
+
+>>>>>>> 97125031614f00008cb31da03dd6a3d36c2f047e
