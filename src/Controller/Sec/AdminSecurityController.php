@@ -20,7 +20,9 @@ class AdminSecurityController extends AbstractController
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         // redirect already logged in customers who might stumble on this route
-        // Removed but should follow the same rules as below with ROLE_USER ans redirect to 'home'
+        // Removed but should follow the same rules as below with ROLE_USER and redirect to 'home' - No, ROLE_USER is inherited
+		// if ($this->getUser() instanceOf Customer) {
+		//	return and redirect to public part of the website } 
 
         if($this->isGranted('ROLE_STAFF')) {
             return $this->redirectToRoute('admin_home_dispatch');

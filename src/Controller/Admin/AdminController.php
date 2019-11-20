@@ -25,6 +25,7 @@ class AdminController extends AbstractController
 {
 
 	private $routeRedirect = 'admin_login';
+	
     /**
      * @Route("/admin", name="admin_home_dispatch", methods={"GET","POST"})
      * @param AdminUserService $adminService
